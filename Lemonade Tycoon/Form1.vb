@@ -8,7 +8,7 @@
     Dim repeat As Boolean = False
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-        addstock = 1
+        addstock = 1 - 1 + 1
 
         Getstock(HScrollBar1.Value, 0, 0)
     End Sub
