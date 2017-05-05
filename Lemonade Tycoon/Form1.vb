@@ -8,7 +8,7 @@
     Dim repeat As Boolean = False
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-        addstock = 1 - 1 + 1
+        addstock = 1
 
         Getstock(HScrollBar1.Value, 0, 0)
     End Sub
@@ -242,14 +242,6 @@
         Button1.Text = HScrollBar1.Value.ToString + " Lemons"
         Button6.Text = HScrollBar1.Value.ToString + " Sugar"
         Button9.Text = HScrollBar1.Value.ToString + " Ice"
-    End Sub
-
-    Private Sub Label13_Click(sender As Object, e As EventArgs)
-
-    End Sub
-
-    Private Sub Label12_Click(sender As Object, e As EventArgs) Handles Label12.Click
-
     End Sub
 
     Private Sub Button2_Click_1(sender As Object, e As EventArgs) Handles Button2.Click

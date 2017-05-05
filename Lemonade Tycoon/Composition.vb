@@ -19,7 +19,17 @@
 
     Dim profit As Double
 
-    Dim reputation As Integer
+    Dim reputation As Integer = 0.5
+
+    Dim moneymade As Integer
+    Dim moneymade1 As Integer
+
+
+    Dim customers As Integer = 10
+    Dim sales As Integer
+
+
+
 
 
     Sub money()
@@ -33,7 +43,7 @@
 
                 If CInt(Label4.Text) >= CInt(TextBox1.Text) * CInt(TextBox4.Text) And CInt(Label5.Text) >= CInt(TextBox2.Text) * CInt(TextBox4.Text) And CInt(Label6.Text) >= CInt(TextBox3.Text) * CInt(TextBox4.Text) Then
 
-                    Me.Hide()
+
 
                     Form1.Label4.Text = CInt(Form1.Label4.Text) - (CInt(TextBox4.Text) * CInt(TextBox1.Text))
                     Form1.Label5.Text = CInt(Form1.Label5.Text) - (CInt(TextBox4.Text) * CInt(TextBox2.Text))
@@ -47,66 +57,48 @@
                     composition(2) = CInt(TextBox3.Text)
 
 
-
                     weather()
                     Getsales()
 
 
-                    Form1.Show()
+
                     multiplier = 0
-
-                    'If multiplier2 = 2 Then
-                    'multiplier += 2
-                    'Else
-                    'End If
-
-                    'If Upgrade.profitx2 = 2 Then
-                    'multiplier += 2
-                    'End If
-
-                    MsgBox("multiplier1 =" + multiplier1.ToString)
-                    MsgBox("multiplier2 =" + multiplier2.ToString)
-
-                    MsgBox("Upgrade.profitx2 =" + Upgrade.profitx2.ToString)
 
                     multiplier = multiplier2 * Upgrade.profitx2
 
-                    MsgBox("multiplier!!!!!!!! = " + multiplier.ToString)
+                    'check upgrade cost!!!!!!
 
 
-                    ' MsgBox(((((CInt(TextBox1.Text) + CInt(TextBox2.Text) + CInt(TextBox3.Text)) * CInt(TextBox4.Text)) * multiplier1) * multiplier).ToString)
+                    moneymade = Math.Round(CInt(Form1.Label2.Text) + (((CInt(TextBox1.Text) + CInt(TextBox2.Text) + CInt(TextBox3.Text)) * CInt(TextBox4.Text)) * multiplier1))
 
-                    Form1.Label2.Text = Math.Round(CInt(Form1.Label2.Text) + ((((CInt(TextBox1.Text) + CInt(TextBox2.Text) + CInt(TextBox3.Text)) * CInt(TextBox4.Text)) * multiplier1) * multiplier))
-
-                    'Insert if statement that doubles profit
+                    moneymade1 = moneymade - Form1.startmoney
 
 
-                    Form1.Label12.Text = CInt(Form1.Label2.Text) - Form1.startmoney
+
+                    moneymade += moneymade1 * (multiplier - 1)
+
+
+
+                    moneymade1 += moneymade1 * (multiplier - 1)
+
+
+                    Form1.Label2.Text = moneymade.ToString
+
+
+
+                    Form1.Label12.Text = moneymade1.ToString
+
+
+
 
                     profit = Form1.Label12.Text
-                    If Upgrade.upgradecost > 0 Then
-                        profit += Upgrade.upgradecost
-                    End If
 
-                    If Form1.liquidcost > 0 Then
-                        profit += Form1.liquidcost
-                    End If
+
+
+
+
                     multiplier = 0
 
-
-
-
-
-
-
-
-
-
-                    'If multiplier = 0 Then
-                    'Else
-                    ' Form1.Label12.Text = profit * multiplier
-                    '  Form1.Label2.Text += (profit * multiplier) - profit
-                    'End If
 
 
                     If profit < 0 Then
@@ -153,8 +145,34 @@
 
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+
+
+
+
+
+
         money()
         Randomize()
+
+        If multiplier2 = 2 Then
+            reputation += 0.1
+        ElseIf multiplier2 = 1 Then
+            reputation -= 0.1
+        End If
+
+        sales = TextBox4.Text
+
+        If customers > sales Then
+            reputation -= 0.1
+        ElseIf customers <= sales Then
+            reputation += 0.1
+        End If
+
+
+
+
+
+
 
         Form1.weather = CInt(Rnd() * 2)
         If Form1.weather = 0 Then
@@ -166,6 +184,10 @@
         Else
 
         End If
+
+
+        Me.Hide()
+        Form1.Show()
     End Sub
 
     Sub Getsales()
