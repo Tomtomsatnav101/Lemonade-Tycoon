@@ -5,7 +5,11 @@
     Public startmoney As Integer
     Public weather As Integer
     Public liquidcost As Integer
-    Dim repeat As Boolean = False
+    Public reputation As Double = 0.5
+    Public customers As Integer = 10
+    Public sales As Integer
+
+
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         addstock = 1
@@ -131,6 +135,11 @@
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
         startmoney = Label2.Text
+
+        Label3.Text = reputation.ToString
+
+        MsgBox(reputation.ToString)
+
         Randomize()
 
         weather = CInt(Rnd() * 2)
@@ -147,9 +156,6 @@
 
         Database.read()
 
-
-
-
     End Sub
 
 
@@ -159,6 +165,7 @@
         Label4.Text = "0"
         Label5.Text = "0"
         Label7.Text = "0"
+        startmoney = Label2.Text
     End Sub
 
     Private Sub Button21_Click(sender As Object, e As EventArgs) Handles Button21.Click
@@ -248,4 +255,7 @@
         weather = 2
         PictureBox6.ImageLocation = "meh.png"
     End Sub
+
+
+
 End Class

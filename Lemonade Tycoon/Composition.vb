@@ -19,14 +19,10 @@
 
     Dim profit As Double
 
-    Dim reputation As Integer = 0.5
-
     Dim moneymade As Integer
     Dim moneymade1 As Integer
 
 
-    Dim customers As Integer = 10
-    Dim sales As Integer
 
 
 
@@ -62,42 +58,28 @@
 
 
 
-                    multiplier = 0
+
 
                     multiplier = multiplier2 * Upgrade.profitx2
-
-                    'check upgrade cost!!!!!!
 
 
                     moneymade = Math.Round(CInt(Form1.Label2.Text) + (((CInt(TextBox1.Text) + CInt(TextBox2.Text) + CInt(TextBox3.Text)) * CInt(TextBox4.Text)) * multiplier1))
 
+
                     moneymade1 = moneymade - Form1.startmoney
-
-
-
                     moneymade += moneymade1 * (multiplier - 1)
-
-
-
                     moneymade1 += moneymade1 * (multiplier - 1)
 
 
                     Form1.Label2.Text = moneymade.ToString
 
-
-
                     Form1.Label12.Text = moneymade1.ToString
-
-
-
 
                     profit = Form1.Label12.Text
 
 
 
 
-
-                    multiplier = 0
 
 
 
@@ -128,8 +110,6 @@
                     End If
 
 
-
-                    Upgrade.upgradecost = 0
                     Form1.liquidcost = 0
                 End If
 
@@ -147,26 +127,41 @@
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
 
 
-
-
-
-
         money()
         Randomize()
 
+
+
+
+
+
         If multiplier2 = 2 Then
-            reputation += 0.1
+            Form1.reputation += 0.1
         ElseIf multiplier2 = 1 Then
-            reputation -= 0.1
+            If Form1.reputation = 0.5 Then
+            Else
+                Form1.reputation -= 0.1
+            End If
         End If
 
-        sales = TextBox4.Text
+        Form1.sales = TextBox4.Text
 
-        If customers > sales Then
-            reputation -= 0.1
-        ElseIf customers <= sales Then
-            reputation += 0.1
-        End If
+
+        Form1.Label3.Text = Form1.reputation.ToString
+
+        'If Form1.customers > Form1.sales Then
+
+        'If Form1.reputation = 0.5 Then
+        'Else
+        'Form1.reputation -= 0.1
+
+
+        'End If
+        ' ElseIf form1.customers <= form1.sales Then
+        ' Form1.reputation += 0.1
+        ' End If
+
+
 
 
 

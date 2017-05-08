@@ -1,7 +1,8 @@
 ﻿Public Class Upgrade
 
     Public profitx2 As Integer = 1
-    Public upgradecost As Boolean = 0
+    Public upgradecheck As Boolean = 0
+    Public upgradecost As Integer
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         Me.Hide()
@@ -18,7 +19,9 @@
         If CInt(Label2.Text) >= 100 Then
             Label2.Text = CInt(Label2.Text) - 100
             profitx2 = 2
-            upgradecost = 1
+            '  upgradecheck = 1
+            ' upgradecost = 100
+            Form1.startmoney = Label2.Text
             Button2.Visible = False
         Else
             profitx2 = 1
