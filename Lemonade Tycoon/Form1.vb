@@ -6,7 +6,7 @@
     Public weather As Integer
     Public liquidcost As Integer
     Public reputation As Double = 0.5
-    Public customers As Integer = 10
+    Public customers As Integer = 100
     Public sales As Integer
 
 
@@ -137,6 +137,7 @@
         startmoney = Label2.Text
 
         Label3.Text = reputation.ToString
+        Label6.Text = customers.ToString
 
         MsgBox(reputation.ToString)
 
