@@ -57,9 +57,9 @@ Partial Class Form1
         Me.TextBox2 = New System.Windows.Forms.TextBox()
         Me.Label16 = New System.Windows.Forms.Label()
         Me.Panel3 = New System.Windows.Forms.Panel()
+        Me.Label6 = New System.Windows.Forms.Label()
         Me.Button2 = New System.Windows.Forms.Button()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.Label6 = New System.Windows.Forms.Label()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
         CType(Me.PictureBox6, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -402,6 +402,15 @@ Partial Class Form1
         Me.Panel3.Size = New System.Drawing.Size(484, 253)
         Me.Panel3.TabIndex = 47
         '
+        'Label6
+        '
+        Me.Label6.AutoSize = True
+        Me.Label6.Location = New System.Drawing.Point(91, 52)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(39, 13)
+        Me.Label6.TabIndex = 47
+        Me.Label6.Text = "Label6"
+        '
         'Button2
         '
         Me.Button2.Location = New System.Drawing.Point(432, 214)
@@ -420,15 +429,6 @@ Partial Class Form1
         Me.Label1.Size = New System.Drawing.Size(72, 24)
         Me.Label1.TabIndex = 44
         Me.Label1.Text = "LOGIN"
-        '
-        'Label6
-        '
-        Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(95, 53)
-        Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(39, 13)
-        Me.Label6.TabIndex = 47
-        Me.Label6.Text = "Label6"
         '
         'Form1
         '

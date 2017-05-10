@@ -150,15 +150,33 @@
 
 
 
-
+        If actualsales = Form1.customers Then
+            If Form1.reputation >= 1.5 Then
+            Else
+                Form1.reputation += 0.1
+                Form1.customers = Form1.customers * 1.1
+            End If
+        Else
+            If Form1.reputation <= 0.5 Then
+            Else
+                Form1.reputation -= 0.1
+                Form1.customers = Form1.customers * 0.9
+            End If
+        End If
 
 
         If multiplier2 = 2 Then
-            Form1.reputation += 0.1
+            If Form1.reputation >= 1.5 Then
+            Else
+                Form1.reputation += 0.1
+                Form1.customers = Form1.customers * 1.1
+            End If
         ElseIf multiplier2 = 1 Then
-            If Form1.reputation = 0.5 Then
+            If Form1.reputation <= 0.5 Then
             Else
                 Form1.reputation -= 0.1
+                Form1.customers = Form1.customers * 0.9
+
             End If
         End If
 
@@ -169,19 +187,9 @@
         Form1.Label6.Text = Form1.customers.ToString
 
 
-        If actualsales = Form1.customers Then
 
 
 
-            Form1.reputation += 0.1
-        Else
-
-            If Form1.reputation = 0.5 Then
-            Else
-
-                Form1.reputation -= 0.1
-            End If
-        End If
 
 
         Form1.weather = CInt(Rnd() * 2)

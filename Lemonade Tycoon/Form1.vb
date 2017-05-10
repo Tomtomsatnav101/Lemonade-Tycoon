@@ -139,8 +139,6 @@
         Label3.Text = reputation.ToString
         Label6.Text = customers.ToString
 
-        MsgBox(reputation.ToString)
-
         Randomize()
 
         weather = CInt(Rnd() * 2)
@@ -173,14 +171,6 @@
         Me.Hide()
         Upgrade.Show()
         Upgrade.Label2.Text = Label2.Text
-    End Sub
-
-    Private Sub Button22_Click(sender As Object, e As EventArgs)
-        'Label13.Text = "Meh"
-    End Sub
-
-    Private Sub Button23_Click(sender As Object, e As EventArgs)
-        'Label2.Text = CInt(Label2.Text) + 200
     End Sub
 
     Private Sub Button24_Click(sender As Object, e As EventArgs) Handles Button24.Click
