@@ -44,11 +44,9 @@
                 Else
                     actualsales = CInt(TextBox4.Text)
 
-
-
-
-
                 End If
+
+
                 If CInt(Label4.Text) >= CInt(TextBox1.Text) * CInt(TextBox4.Text) And CInt(Label5.Text) >= CInt(TextBox2.Text) * CInt(TextBox4.Text) And CInt(Label6.Text) >= CInt(TextBox3.Text) * CInt(TextBox4.Text) Then
 
 
@@ -180,13 +178,35 @@
             End If
         End If
 
-
-
-
         Form1.Label3.Text = Form1.reputation.ToString
         Form1.Label6.Text = Form1.customers.ToString
 
 
+        If Form1.reputation > 0.6 Then
+            Form1.PictureBox7.ImageLocation = "Star.Png"
+            If Form1.reputation > 0.8 Then
+                Form1.PictureBox8.ImageLocation = "Star.Png"
+                If Form1.reputation > 1 Then
+                    Form1.PictureBox9.ImageLocation = "Star.Png"
+                    If Form1.reputation > 1.2 Then
+                        Form1.PictureBox10.ImageLocation = "Star.Png"
+                        If Form1.reputation > 1.4 Then
+                            Form1.PictureBox11.ImageLocation = "Star.Png"
+                        Else
+                            Form1.PictureBox11.ImageLocation = Nothing
+                        End If
+                    Else
+                        Form1.PictureBox10.ImageLocation = Nothing
+                    End If
+                Else
+                    Form1.PictureBox9.ImageLocation = Nothing
+                End If
+            Else
+                Form1.PictureBox8.ImageLocation = Nothing
+            End If
+        Else
+            Form1.PictureBox7.ImageLocation = Nothing
+        End If
 
 
 
