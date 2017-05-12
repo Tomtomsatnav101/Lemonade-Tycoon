@@ -10,58 +10,17 @@
     Public sales As Integer
     Public deviation As Integer
 
-
-
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         addstock = 1
-
         Getstock(HScrollBar1.Value, 0, 0)
-    End Sub
-    Private Sub Button2_Click(sender As Object, e As EventArgs)
-        addstock = 1
-        Getstock(20, 0, 0)
-    End Sub
-    Private Sub Button3_Click(sender As Object, e As EventArgs)
-        addstock = 1
-        Getstock(100, 0, 0)
-    End Sub
-    Private Sub Button11_Click(sender As Object, e As EventArgs)
-        addstock = 1
-        Getstock(1000, 0, 0)
-    End Sub
-    Private Sub Button16_Click(sender As Object, e As EventArgs)
-        addstock = 1
-        Getstock(10000, 0, 0)
-    End Sub
-
-    Private Sub Button19_Click(sender As Object, e As EventArgs)
-        addstock = 1
-        Getstock(100000, 0, 0)
     End Sub
     Private Sub Button6_Click(sender As Object, e As EventArgs) Handles Button6.Click
         addstock = 2
         Getstock(0, HScrollBar1.Value, 0)
     End Sub
-    Private Sub Button5_Click(sender As Object, e As EventArgs)
-        addstock = 2
-        Getstock(0, 20, 0)
-    End Sub
-    Private Sub Button4_Click(sender As Object, e As EventArgs)
-        addstock = 2
-        Getstock(0, 100, 0)
-    End Sub
-    Private Sub Button12_Click(sender As Object, e As EventArgs)
-        addstock = 2
-        Getstock(0, 1000, 0)
-    End Sub
-    Private Sub Button15_Click(sender As Object, e As EventArgs)
-        addstock = 2
-        Getstock(0, 10000, 0)
-    End Sub
-
-    Private Sub Button18_Click(sender As Object, e As EventArgs)
-        addstock = 2
-        Getstock(0, 100000, 0)
+    Private Sub Button9_Click(sender As Object, e As EventArgs) Handles Button9.Click
+        addstock = 3
+        Getstock(0, 0, HScrollBar1.Value)
     End Sub
     Sub Getstock(Pluslemons, Plussugar, plusice)
         If addstock = 1 Then
@@ -93,36 +52,7 @@
         End If
 
     End Sub
-
-    Private Sub Button9_Click(sender As Object, e As EventArgs) Handles Button9.Click
-        addstock = 3
-        Getstock(0, 0, HScrollBar1.Value)
-    End Sub
-
-    Private Sub Button8_Click(sender As Object, e As EventArgs)
-        addstock = 3
-        Getstock(0, 0, 20)
-    End Sub
-
-    Private Sub Button7_Click(sender As Object, e As EventArgs)
-        addstock = 3
-        Getstock(0, 0, 100)
-    End Sub
-    Private Sub Button13_Click(sender As Object, e As EventArgs)
-        addstock = 3
-        Getstock(0, 0, 1000)
-    End Sub
-    Private Sub Button14_Click(sender As Object, e As EventArgs)
-        addstock = 3
-        Getstock(0, 0, 10000)
-    End Sub
-
-    Private Sub Button17_Click(sender As Object, e As EventArgs)
-        addstock = 3
-        Getstock(0, 0, 100000)
-    End Sub
     Private Sub Button10_Click(sender As Object, e As EventArgs) Handles Button10.Click
-
 
         Composition.Show()
         Me.Hide()
@@ -154,7 +84,7 @@
         End If
 
 
-        Database.read()
+
 
     End Sub
 
@@ -176,34 +106,22 @@
 
     Private Sub Button24_Click(sender As Object, e As EventArgs) Handles Button24.Click
 
-        For i As Integer = 1 To Database.usercount
 
-            If TextBox1.Text = Database.database(i).username Then
-                MsgBox("This username has already been taken")
-                Exit Sub
-            Else
-
-            End If
-        Next
 
         Database.database(Database.usercount).ID = Database.usercount
-        Database.database(Database.usercount).username = TextBox1.Text
+
         Database.database(Database.usercount).money = Label2.Text
         Database.database(Database.usercount).score = Label2.Text
-        Database.database(Database.usercount).password = TextBox2.Text
+
         Database.database(Database.usercount).customers = Composition.totalsales
         Database.database(Database.usercount).lemons = Label4.Text
         Database.database(Database.usercount).sugar = Label5.Text
         Database.database(Database.usercount).ice = Label7.Text
         Database.database(Database.usercount).profit = Label12.Text
 
-
-
         Database.usercount += 1
         Database.write()
-        TextBox1.Text = ""
-        TextBox2.Text = ""
-
+        End
     End Sub
 
     Private Sub Button25_Click(sender As Object, e As EventArgs) Handles Button25.Click
@@ -211,31 +129,7 @@
         Leaderboard.Show()
     End Sub
 
-    Private Sub Button26_Click(sender As Object, e As EventArgs) Handles Button26.Click
-        If TextBox1.Text = "" Or TextBox2.Text = "" Then
 
-        Else
-
-
-            For i As Integer = 1 To Database.usercount
-                If Database.database(i).username = TextBox1.Text And Database.database(i).password = TextBox2.Text Then
-
-                    Label4.Text = Database.database(i).lemons.ToString
-                    Label5.Text = Database.database(i).sugar.ToString
-                    Label7.Text = Database.database(i).ice.ToString
-                    Label12.Text = Database.database(i).profit.ToString
-                    Composition.totalsales = Database.database(i).customers
-                    Label2.Text = Database.database(i).money.ToString
-
-
-                End If
-
-            Next
-            TextBox2.Text = ""
-            TextBox1.Text = ""
-
-        End If
-    End Sub
 
     Private Sub HScrollBar1_Scroll(sender As Object, e As ScrollEventArgs) Handles HScrollBar1.Scroll
         Button1.Text = HScrollBar1.Value.ToString + " Lemons"
@@ -250,26 +144,41 @@
 
 
 
-    Private Sub label3_Click(sender As Object, e As EventArgs) Handles Label3.Click
-
-
-
+    Private Sub Panel2_MouseHover(sender As Object, e As EventArgs) Handles Panel2.MouseHover
+        Label8.Text = ""
     End Sub
+    Private Sub Form1_MouseHover(sender As Object, e As EventArgs) Handles Me.MouseHover
+        Label8.Text = ""
+    End Sub
+    Private Sub Panel3_MouseHover(sender As Object, e As EventArgs) Handles Panel3.MouseHover
+        Label8.Text = ""
+    End Sub
+    Private Sub Panel1_MouseHover(sender As Object, e As EventArgs) Handles Panel1.MouseHover
+        Label8.Text = ""
+    End Sub
+
+
 
     Private Sub Label3_MouseHover(sender As Object, e As EventArgs) Handles Label3.MouseHover
         Label8.Text = "Yesterday you served " + Composition.actualsales.ToString + " people"
     End Sub
-
-
-    Private Sub Panel3_MouseHover(sender As Object, e As EventArgs) Handles Panel3.MouseHover
-        Label8.Text = ""
-    End Sub
-
     Private Sub Label4_MouseHover(sender As Object, e As EventArgs) Handles Label4.MouseHover
-        Label8.Text = "Yesterday you sold " + (CInt((Composition.TextBox1.Text) * (Composition.TextBox4.Text)) - CInt(Label4.Text)).ToString + " lemons"
+        Label8.Text = "Yesterday you sold " + (CInt(Composition.actualsales) * CInt(Composition.TextBox1.Text)).ToString + " lemons"
+    End Sub
+    Private Sub Label5_MouseHover(sender As Object, e As EventArgs) Handles Label5.MouseHover
+        Label8.Text = "Yesterday you sold " + (CInt(Composition.actualsales) * CInt(Composition.TextBox2.Text)).ToString + " sugar"
+    End Sub
+    Private Sub Label7_MouseHover(sender As Object, e As EventArgs) Handles Label7.MouseHover
+        Label8.Text = "Yesterday you sold " + (CInt(Composition.actualsales) * CInt(Composition.TextBox3.Text)).ToString + " ice"
     End Sub
 
-    Private Sub Panel1_MouseHover(sender As Object, e As EventArgs) Handles Panel1.MouseHover
-        Label8.Text = ""
+
+
+    Private Sub Button20_MouseHover(sender As Object, e As EventArgs) Handles Button20.MouseHover
+        Label8.Text = "Press this button if you have accicdently bought too much stock. It will sell it all back, for a small loss, but will ensure all your customers remain happy"
+    End Sub
+
+    Private Sub Button21_MouseHover(sender As Object, e As EventArgs) Handles Button21.MouseHover
+        Label8.Text = "Press this button to access the upgrade screen"
     End Sub
 End Class

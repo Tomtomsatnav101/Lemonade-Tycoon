@@ -79,7 +79,7 @@
 
 
                     moneymade1 = moneymade - Form1.startmoney
-                        moneymade += moneymade1 * (multiplier - 1)
+                    moneymade += moneymade1 * (multiplier - 1)
                         moneymade1 += moneymade1 * (multiplier - 1)
 
 

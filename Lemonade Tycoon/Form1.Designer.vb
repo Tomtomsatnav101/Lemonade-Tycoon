@@ -50,12 +50,7 @@ Partial Class Form1
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.HScrollBar1 = New System.Windows.Forms.HScrollBar()
         Me.Button24 = New System.Windows.Forms.Button()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
-        Me.Label15 = New System.Windows.Forms.Label()
         Me.Button25 = New System.Windows.Forms.Button()
-        Me.Button26 = New System.Windows.Forms.Button()
-        Me.TextBox2 = New System.Windows.Forms.TextBox()
-        Me.Label16 = New System.Windows.Forms.Label()
         Me.Panel3 = New System.Windows.Forms.Panel()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.PictureBox11 = New System.Windows.Forms.PictureBox()
@@ -336,28 +331,12 @@ Partial Class Form1
         '
         'Button24
         '
-        Me.Button24.Location = New System.Drawing.Point(227, 72)
+        Me.Button24.Location = New System.Drawing.Point(195, 95)
         Me.Button24.Name = "Button24"
         Me.Button24.Size = New System.Drawing.Size(112, 45)
         Me.Button24.TabIndex = 37
-        Me.Button24.Text = " Save"
+        Me.Button24.Text = " Save and quit"
         Me.Button24.UseVisualStyleBackColor = True
-        '
-        'TextBox1
-        '
-        Me.TextBox1.Location = New System.Drawing.Point(75, 84)
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(128, 20)
-        Me.TextBox1.TabIndex = 38
-        '
-        'Label15
-        '
-        Me.Label15.AutoSize = True
-        Me.Label15.Location = New System.Drawing.Point(11, 91)
-        Me.Label15.Name = "Label15"
-        Me.Label15.Size = New System.Drawing.Size(58, 13)
-        Me.Label15.TabIndex = 39
-        Me.Label15.Text = "Username:"
         '
         'Button25
         '
@@ -367,31 +346,6 @@ Partial Class Form1
         Me.Button25.TabIndex = 40
         Me.Button25.Text = "Leaderboards"
         Me.Button25.UseVisualStyleBackColor = True
-        '
-        'Button26
-        '
-        Me.Button26.Location = New System.Drawing.Point(227, 123)
-        Me.Button26.Name = "Button26"
-        Me.Button26.Size = New System.Drawing.Size(112, 45)
-        Me.Button26.TabIndex = 41
-        Me.Button26.Text = "Load"
-        Me.Button26.UseVisualStyleBackColor = True
-        '
-        'TextBox2
-        '
-        Me.TextBox2.Location = New System.Drawing.Point(75, 136)
-        Me.TextBox2.Name = "TextBox2"
-        Me.TextBox2.Size = New System.Drawing.Size(128, 20)
-        Me.TextBox2.TabIndex = 42
-        '
-        'Label16
-        '
-        Me.Label16.AutoSize = True
-        Me.Label16.Location = New System.Drawing.Point(11, 139)
-        Me.Label16.Name = "Label16"
-        Me.Label16.Size = New System.Drawing.Size(56, 13)
-        Me.Label16.TabIndex = 43
-        Me.Label16.Text = "Password:"
         '
         'Panel3
         '
@@ -406,12 +360,7 @@ Partial Class Form1
         Me.Panel3.Controls.Add(Me.Label3)
         Me.Panel3.Controls.Add(Me.Button2)
         Me.Panel3.Controls.Add(Me.Label1)
-        Me.Panel3.Controls.Add(Me.Label16)
-        Me.Panel3.Controls.Add(Me.TextBox2)
-        Me.Panel3.Controls.Add(Me.Button26)
         Me.Panel3.Controls.Add(Me.Button25)
-        Me.Panel3.Controls.Add(Me.Label15)
-        Me.Panel3.Controls.Add(Me.TextBox1)
         Me.Panel3.Controls.Add(Me.Button24)
         Me.Panel3.Location = New System.Drawing.Point(554, 80)
         Me.Panel3.Name = "Panel3"
@@ -420,10 +369,9 @@ Partial Class Form1
         '
         'Label8
         '
-        Me.Label8.AutoSize = True
-        Me.Label8.Location = New System.Drawing.Point(56, 184)
+        Me.Label8.Location = New System.Drawing.Point(24, 181)
         Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(0, 13)
+        Me.Label8.Size = New System.Drawing.Size(400, 48)
         Me.Label8.TabIndex = 53
         '
         'PictureBox11
@@ -556,12 +504,7 @@ Partial Class Form1
     Friend WithEvents PictureBox5 As PictureBox
     Friend WithEvents PictureBox4 As PictureBox
     Friend WithEvents Button24 As Button
-    Friend WithEvents TextBox1 As TextBox
-    Friend WithEvents Label15 As Label
     Friend WithEvents Button25 As Button
-    Friend WithEvents Button26 As Button
-    Friend WithEvents TextBox2 As TextBox
-    Friend WithEvents Label16 As Label
     Friend WithEvents Panel3 As Panel
     Friend WithEvents Label1 As Label
     Friend WithEvents Button2 As Button
