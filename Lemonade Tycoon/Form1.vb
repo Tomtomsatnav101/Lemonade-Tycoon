@@ -8,6 +8,7 @@
     Public reputation As Double = 0.5
     Public customers As Integer = 100
     Public sales As Integer
+    Public deviation As Integer
 
 
 
@@ -217,20 +218,20 @@
 
 
             For i As Integer = 1 To Database.usercount
-            If Database.database(i).username = TextBox1.Text And Database.database(i).password = TextBox2.Text Then
+                If Database.database(i).username = TextBox1.Text And Database.database(i).password = TextBox2.Text Then
 
-                Label4.Text = Database.database(i).lemons.ToString
-                Label5.Text = Database.database(i).sugar.ToString
-                Label7.Text = Database.database(i).ice.ToString
-                Label12.Text = Database.database(i).profit.ToString
-                Composition.totalsales = Database.database(i).customers
-                Label2.Text = Database.database(i).money.ToString
+                    Label4.Text = Database.database(i).lemons.ToString
+                    Label5.Text = Database.database(i).sugar.ToString
+                    Label7.Text = Database.database(i).ice.ToString
+                    Label12.Text = Database.database(i).profit.ToString
+                    Composition.totalsales = Database.database(i).customers
+                    Label2.Text = Database.database(i).money.ToString
 
 
-            End If
+                End If
 
-        Next
-        TextBox2.Text = ""
+            Next
+            TextBox2.Text = ""
             TextBox1.Text = ""
 
         End If
@@ -249,4 +250,26 @@
 
 
 
+    Private Sub label3_Click(sender As Object, e As EventArgs) Handles Label3.Click
+
+
+
+    End Sub
+
+    Private Sub Label3_MouseHover(sender As Object, e As EventArgs) Handles Label3.MouseHover
+        Label8.Text = "Yesterday you served " + Composition.actualsales.ToString + " people"
+    End Sub
+
+
+    Private Sub Panel3_MouseHover(sender As Object, e As EventArgs) Handles Panel3.MouseHover
+        Label8.Text = ""
+    End Sub
+
+    Private Sub Label4_MouseHover(sender As Object, e As EventArgs) Handles Label4.MouseHover
+        Label8.Text = "Yesterday you sold " + (CInt((Composition.TextBox1.Text) * (Composition.TextBox4.Text)) - CInt(Label4.Text)).ToString + " lemons"
+    End Sub
+
+    Private Sub Panel1_MouseHover(sender As Object, e As EventArgs) Handles Panel1.MouseHover
+        Label8.Text = ""
+    End Sub
 End Class

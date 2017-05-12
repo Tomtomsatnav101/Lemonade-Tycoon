@@ -23,7 +23,9 @@
     Dim moneymade1 As Integer
 
 
-    Dim actualsales As Integer
+    Public actualsales As Integer
+
+    Dim variance As Integer
 
 
 
@@ -141,6 +143,11 @@
 
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+
+        Dim num As New Random
+        variance = num.Next(-10, 10)
+        Form1.deviation = variance * CInt(Form1.reputation)
+        Form1.customers += Form1.deviation
 
 
         money()
