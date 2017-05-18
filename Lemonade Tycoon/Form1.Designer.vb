@@ -60,7 +60,6 @@ Partial Class Form1
         Me.PictureBox7 = New System.Windows.Forms.PictureBox()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.Button2 = New System.Windows.Forms.Button()
-        Me.Label1 = New System.Windows.Forms.Label()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
         CType(Me.PictureBox6, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -250,6 +249,7 @@ Partial Class Form1
         '
         'PictureBox6
         '
+        Me.PictureBox6.ErrorImage = Nothing
         Me.PictureBox6.Image = CType(resources.GetObject("PictureBox6.Image"), System.Drawing.Image)
         Me.PictureBox6.Location = New System.Drawing.Point(908, -3)
         Me.PictureBox6.Name = "PictureBox6"
@@ -359,7 +359,6 @@ Partial Class Form1
         Me.Panel3.Controls.Add(Me.Label6)
         Me.Panel3.Controls.Add(Me.Label3)
         Me.Panel3.Controls.Add(Me.Button2)
-        Me.Panel3.Controls.Add(Me.Label1)
         Me.Panel3.Controls.Add(Me.Button25)
         Me.Panel3.Controls.Add(Me.Button24)
         Me.Panel3.Location = New System.Drawing.Point(554, 80)
@@ -376,6 +375,8 @@ Partial Class Form1
         '
         'PictureBox11
         '
+        Me.PictureBox11.ErrorImage = Nothing
+        Me.PictureBox11.InitialImage = Nothing
         Me.PictureBox11.Location = New System.Drawing.Point(443, 12)
         Me.PictureBox11.Name = "PictureBox11"
         Me.PictureBox11.Size = New System.Drawing.Size(36, 31)
@@ -385,6 +386,8 @@ Partial Class Form1
         '
         'PictureBox10
         '
+        Me.PictureBox10.ErrorImage = Nothing
+        Me.PictureBox10.InitialImage = Nothing
         Me.PictureBox10.Location = New System.Drawing.Point(408, 12)
         Me.PictureBox10.Name = "PictureBox10"
         Me.PictureBox10.Size = New System.Drawing.Size(36, 31)
@@ -394,6 +397,8 @@ Partial Class Form1
         '
         'PictureBox9
         '
+        Me.PictureBox9.ErrorImage = Nothing
+        Me.PictureBox9.InitialImage = Nothing
         Me.PictureBox9.Location = New System.Drawing.Point(373, 12)
         Me.PictureBox9.Name = "PictureBox9"
         Me.PictureBox9.Size = New System.Drawing.Size(36, 31)
@@ -403,6 +408,7 @@ Partial Class Form1
         '
         'PictureBox8
         '
+        Me.PictureBox8.ErrorImage = Nothing
         Me.PictureBox8.Location = New System.Drawing.Point(338, 12)
         Me.PictureBox8.Name = "PictureBox8"
         Me.PictureBox8.Size = New System.Drawing.Size(36, 31)
@@ -412,6 +418,8 @@ Partial Class Form1
         '
         'PictureBox7
         '
+        Me.PictureBox7.ErrorImage = Nothing
+        Me.PictureBox7.InitialImage = Nothing
         Me.PictureBox7.Location = New System.Drawing.Point(300, 12)
         Me.PictureBox7.Name = "PictureBox7"
         Me.PictureBox7.Size = New System.Drawing.Size(39, 31)
@@ -435,16 +443,6 @@ Partial Class Form1
         Me.Button2.TabIndex = 45
         Me.Button2.Text = "Meh"
         Me.Button2.UseVisualStyleBackColor = True
-        '
-        'Label1
-        '
-        Me.Label1.AutoSize = True
-        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(204, 19)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(72, 24)
-        Me.Label1.TabIndex = 44
-        Me.Label1.Text = "LOGIN"
         '
         'Form1
         '
@@ -506,7 +504,6 @@ Partial Class Form1
     Friend WithEvents Button24 As Button
     Friend WithEvents Button25 As Button
     Friend WithEvents Panel3 As Panel
-    Friend WithEvents Label1 As Label
     Friend WithEvents Button2 As Button
     Friend WithEvents Label3 As Label
     Friend WithEvents Label6 As Label

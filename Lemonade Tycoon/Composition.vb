@@ -190,15 +190,15 @@
 
 
         If Form1.reputation > 0.6 Then
-            Form1.PictureBox7.ImageLocation = "Star.Png"
+            Form1.PictureBox7.ImageLocation = "U:\Pictures\Star.Png"
             If Form1.reputation > 0.8 Then
-                Form1.PictureBox8.ImageLocation = "Star.Png"
+                Form1.PictureBox8.ImageLocation = "U:\Pictures\Star.Png"
                 If Form1.reputation > 1 Then
-                    Form1.PictureBox9.ImageLocation = "Star.Png"
+                    Form1.PictureBox9.ImageLocation = "U:\Pictures\Star.Png"
                     If Form1.reputation > 1.2 Then
-                        Form1.PictureBox10.ImageLocation = "Star.Png"
+                        Form1.PictureBox10.ImageLocation = "U:\Pictures\Star.Png"
                         If Form1.reputation > 1.4 Then
-                            Form1.PictureBox11.ImageLocation = "Star.Png"
+                            Form1.PictureBox11.ImageLocation = "U:\Pictures\Star.Png"
                         Else
                             Form1.PictureBox11.ImageLocation = Nothing
                         End If
