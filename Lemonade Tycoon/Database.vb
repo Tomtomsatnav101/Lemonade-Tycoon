@@ -10,6 +10,9 @@
         Dim sugar As Integer
         Dim ice As Integer
         Dim profit As Integer
+        Dim reputation As Double
+        Dim expected As Integer
+
 
     End Structure
 
@@ -17,8 +20,8 @@
     Public usercount As Integer = 1
 
     Public Sub read()
-        If My.Computer.FileSystem.FileExists("database.txt") Then
-            Dim filetext As String = My.Computer.FileSystem.ReadAllText("database.txt")
+        If My.Computer.FileSystem.FileExists("U:\database.txt") Then
+            Dim filetext As String = My.Computer.FileSystem.ReadAllText("U:\database.txt")
             Dim records() As String = filetext.Split("▓")
             For i As Integer = 0 To records.Length - 1
                 Dim fields() As String = records(i).Split("▒")
@@ -32,10 +35,12 @@
                 database(usercount).sugar = fields(7)
                 database(usercount).ice = fields(8)
                 database(usercount).profit = fields(9)
+                database(usercount).reputation = fields(10)
+                database(usercount).expected = fields(11)
                 usercount += 1
             Next
         Else
-            My.Computer.FileSystem.WriteAllText("database.txt", "", False)
+            My.Computer.FileSystem.WriteAllText("U:\database.txt", "", False)
         End If
     End Sub
 
@@ -52,10 +57,12 @@
                 filetext += database(i).lemons.ToString + "▒"
                 filetext += database(i).sugar.ToString + "▒"
                 filetext += database(i).ice.ToString + "▒"
-                filetext += database(i).profit.ToString + "▓"
+                filetext += database(i).profit.ToString + "▒"
+                filetext += database(i).reputation.ToString + "▒"
+                filetext += database(i).expected.ToString + "▓"
             End If
         Next
-        My.Computer.FileSystem.WriteAllText("database.txt", filetext, False)
+        My.Computer.FileSystem.WriteAllText("U:\database.txt", filetext, False)
     End Sub
 
 

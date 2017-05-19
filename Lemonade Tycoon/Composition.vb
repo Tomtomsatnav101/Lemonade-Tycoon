@@ -96,11 +96,11 @@
 
 
                         If profit < 0 Then
-                            Form1.PictureBox5.ImageLocation = "redprofit.png"
-                        ElseIf profit > -1 Then
-                            Form1.PictureBox5.ImageLocation = "profit.png"
+                        Form1.PictureBox5.ImageLocation = "U:\Pictures\redprofit.png"
+                    ElseIf profit > -1 Then
+                        Form1.PictureBox5.ImageLocation = "U:\Pictures\profit.png"
 
-                        End If
+                    End If
 
                         Form1.startmoney = Form1.Label2.Text
                         If CInt(Form1.Label12.Text) > 0 Then
@@ -221,11 +221,11 @@
 
         Form1.weather = CInt(Rnd() * 2)
         If Form1.weather = 0 Then
-            Form1.PictureBox6.ImageLocation = "sunny.PNG"
+            Form1.PictureBox6.ImageLocation = "U:\Pictures\sunny.PNG"
         ElseIf Form1.weather = 1 Then
-            Form1.PictureBox6.ImageLocation = "cold.PNG"
+            Form1.PictureBox6.ImageLocation = "U:\Pictures\cold.PNG"
         ElseIf Form1.weather = 2 Then
-            Form1.PictureBox6.ImageLocation = "meh.png"
+            Form1.PictureBox6.ImageLocation = "U:\Pictures\meh.png"
         Else
 
         End If

@@ -23,12 +23,12 @@ Partial Class Log_in
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.Button2 = New System.Windows.Forms.Button()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.Label16 = New System.Windows.Forms.Label()
         Me.TextBox2 = New System.Windows.Forms.TextBox()
         Me.Label15 = New System.Windows.Forms.Label()
         Me.TextBox1 = New System.Windows.Forms.TextBox()
-        Me.Button2 = New System.Windows.Forms.Button()
         Me.Panel1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -45,6 +45,17 @@ Partial Class Log_in
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(293, 270)
         Me.Panel1.TabIndex = 0
+        '
+        'Button2
+        '
+        Me.Button2.BackColor = System.Drawing.Color.White
+        Me.Button2.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.Button2.Location = New System.Drawing.Point(53, 207)
+        Me.Button2.Name = "Button2"
+        Me.Button2.Size = New System.Drawing.Size(189, 23)
+        Me.Button2.TabIndex = 49
+        Me.Button2.Text = "Sign up"
+        Me.Button2.UseVisualStyleBackColor = False
         '
         'Button1
         '
@@ -73,6 +84,7 @@ Partial Class Log_in
         '
         Me.TextBox2.Location = New System.Drawing.Point(53, 128)
         Me.TextBox2.Name = "TextBox2"
+        Me.TextBox2.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
         Me.TextBox2.Size = New System.Drawing.Size(189, 20)
         Me.TextBox2.TabIndex = 46
         '
@@ -93,17 +105,6 @@ Partial Class Log_in
         Me.TextBox1.Name = "TextBox1"
         Me.TextBox1.Size = New System.Drawing.Size(189, 20)
         Me.TextBox1.TabIndex = 44
-        '
-        'Button2
-        '
-        Me.Button2.BackColor = System.Drawing.Color.White
-        Me.Button2.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.Button2.Location = New System.Drawing.Point(53, 207)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(189, 23)
-        Me.Button2.TabIndex = 49
-        Me.Button2.Text = "Sign up"
-        Me.Button2.UseVisualStyleBackColor = False
         '
         'Log_in
         '

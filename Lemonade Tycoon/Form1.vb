@@ -74,11 +74,11 @@
 
         weather = CInt(Rnd() * 2)
         If weather = 0 Then
-            PictureBox6.ImageLocation = "sunny.PNG"
+            PictureBox6.ImageLocation = "U:\Pictures\sunny.PNG"
         ElseIf weather = 1 Then
-            PictureBox6.ImageLocation = "cold.PNG"
+            PictureBox6.ImageLocation = "U:\Pictures\cold.PNG"
         ElseIf weather = 2 Then
-            PictureBox6.ImageLocation = "meh.png"
+            PictureBox6.ImageLocation = "U:\Pictures\meh.png"
         Else
 
         End If
@@ -108,16 +108,18 @@
 
 
 
-        Database.database(Database.usercount).ID = Database.usercount
+        Database.database(Log_in.number).ID = Database.usercount
 
-        Database.database(Database.usercount).money = Label2.Text
-        Database.database(Database.usercount).score = Label2.Text
+        Database.database(Log_in.number).money = Label2.Text
+        Database.database(Log_in.number).score = Label2.Text
 
-        Database.database(Database.usercount).customers = Composition.totalsales
-        Database.database(Database.usercount).lemons = Label4.Text
-        Database.database(Database.usercount).sugar = Label5.Text
-        Database.database(Database.usercount).ice = Label7.Text
-        Database.database(Database.usercount).profit = Label12.Text
+        Database.database(Log_in.number).customers = Composition.totalsales
+        Database.database(Log_in.number).lemons = Label4.Text
+        Database.database(Log_in.number).sugar = Label5.Text
+        Database.database(Log_in.number).ice = Label7.Text
+        Database.database(Log_in.number).profit = Label12.Text
+        Database.database(Log_in.number).reputation = Label3.Text
+        Database.database(Log_in.number).expected = Label6.Text
 
         Database.usercount += 1
         Database.write()
@@ -139,7 +141,7 @@
 
     Private Sub Button2_Click_1(sender As Object, e As EventArgs) Handles Button2.Click
         weather = 2
-        PictureBox6.ImageLocation = "meh.png"
+        PictureBox6.ImageLocation = "U:\Pictures\meh.png"
     End Sub
 
 
@@ -172,8 +174,6 @@
         Label8.Text = "Yesterday you sold " + (CInt(Composition.actualsales) * CInt(Composition.TextBox3.Text)).ToString + " ice"
     End Sub
 
-
-
     Private Sub Button20_MouseHover(sender As Object, e As EventArgs) Handles Button20.MouseHover
         Label8.Text = "Press this button if you have accicdently bought too much stock. It will sell it all back, for a small loss, but will ensure all your customers remain happy"
     End Sub
@@ -181,4 +181,9 @@
     Private Sub Button21_MouseHover(sender As Object, e As EventArgs) Handles Button21.MouseHover
         Label8.Text = "Press this button to access the upgrade screen"
     End Sub
+
+    Private Sub Label6_MouseHover(sender As Object, e As EventArgs) Handles Label6.MouseHover
+        Label8.Text = "This number is a forcast of how many customers you will encounter today. As it is an estimate, the real number may vary, so plan accordingly"
+    End Sub
+
 End Class
