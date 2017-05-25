@@ -2,6 +2,12 @@
     Dim taken As Boolean = 0
     Public number As Integer
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+
+
+
+
+
+
         If TextBox1.Text = "" Or TextBox2.Text = "" Then
         Else
 
@@ -63,6 +69,7 @@
                 Database.database(Database.usercount).reputation = 0.5
                 Form1.Label6.Text = 100
                 Database.database(Database.usercount).expected = 100
+                number = usercount
                 Me.Hide()
                 Form1.Show()
                 Else

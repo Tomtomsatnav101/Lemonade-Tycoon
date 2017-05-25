@@ -157,6 +157,7 @@ Partial Class Form1
         '
         Me.Button1.BackgroundImage = Global.Lemonade_Tycoon.My.Resources.Resources.killme
         Me.Button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.Button1.DialogResult = System.Windows.Forms.DialogResult.Cancel
         Me.Button1.Location = New System.Drawing.Point(43, 18)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(65, 37)

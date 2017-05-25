@@ -189,31 +189,7 @@
         Form1.Label6.Text = Form1.customers.ToString
 
 
-        If Form1.reputation > 0.6 Then
-            Form1.PictureBox7.ImageLocation = "U:\Pictures\Star.Png"
-            If Form1.reputation > 0.8 Then
-                Form1.PictureBox8.ImageLocation = "U:\Pictures\Star.Png"
-                If Form1.reputation > 1 Then
-                    Form1.PictureBox9.ImageLocation = "U:\Pictures\Star.Png"
-                    If Form1.reputation > 1.2 Then
-                        Form1.PictureBox10.ImageLocation = "U:\Pictures\Star.Png"
-                        If Form1.reputation > 1.4 Then
-                            Form1.PictureBox11.ImageLocation = "U:\Pictures\Star.Png"
-                        Else
-                            Form1.PictureBox11.ImageLocation = Nothing
-                        End If
-                    Else
-                        Form1.PictureBox10.ImageLocation = Nothing
-                    End If
-                Else
-                    Form1.PictureBox9.ImageLocation = Nothing
-                End If
-            Else
-                Form1.PictureBox8.ImageLocation = Nothing
-            End If
-        Else
-            Form1.PictureBox7.ImageLocation = Nothing
-        End If
+        Getstar()
 
 
 
@@ -267,6 +243,34 @@
 
     End Sub
 
+    Public Sub Getstar()
+
+        If Form1.reputation > 0.6 Then
+            Form1.PictureBox7.ImageLocation = "U:\Pictures\Star.Png"
+            If Form1.reputation > 0.8 Then
+                Form1.PictureBox8.ImageLocation = "U:\Pictures\Star.Png"
+                If Form1.reputation > 1 Then
+                    Form1.PictureBox9.ImageLocation = "U:\Pictures\Star.Png"
+                    If Form1.reputation > 1.2 Then
+                        Form1.PictureBox10.ImageLocation = "U:\Pictures\Star.Png"
+                        If Form1.reputation > 1.4 Then
+                            Form1.PictureBox11.ImageLocation = "U:\Pictures\Star.Png"
+                        Else
+                            Form1.PictureBox11.ImageLocation = Nothing
+                        End If
+                    Else
+                        Form1.PictureBox10.ImageLocation = Nothing
+                    End If
+                Else
+                    Form1.PictureBox9.ImageLocation = Nothing
+                End If
+            Else
+                Form1.PictureBox8.ImageLocation = Nothing
+            End If
+        Else
+            Form1.PictureBox7.ImageLocation = Nothing
+        End If
+    End Sub
 
 
     Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click

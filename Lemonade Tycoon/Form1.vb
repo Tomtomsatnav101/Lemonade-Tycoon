@@ -28,6 +28,7 @@
             If Label2.Text >= Pluslemons Then
                 Label4.Text = CInt(Label4.Text + Pluslemons)
                 Label2.Text = CInt(Label2.Text - Pluslemons)
+
             Else
             End If
 
@@ -66,9 +67,14 @@
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
         startmoney = Label2.Text
+        reputation = Label3.Text
 
-        Label3.Text = reputation.ToString
-        Label6.Text = customers.ToString
+
+        Composition.Getstar()
+
+
+
+
 
         Randomize()
 
@@ -108,8 +114,6 @@
 
 
 
-        Database.database(Log_in.number).ID = Database.usercount
-
         Database.database(Log_in.number).money = Label2.Text
         Database.database(Log_in.number).score = Label2.Text
 
@@ -121,7 +125,7 @@
         Database.database(Log_in.number).reputation = Label3.Text
         Database.database(Log_in.number).expected = Label6.Text
 
-        Database.usercount += 1
+
         Database.write()
         End
     End Sub
@@ -142,12 +146,15 @@
     Private Sub Button2_Click_1(sender As Object, e As EventArgs) Handles Button2.Click
         weather = 2
         PictureBox6.ImageLocation = "U:\Pictures\meh.png"
+
+        'Get rid of this in real game
     End Sub
 
 
 
     Private Sub Panel2_MouseHover(sender As Object, e As EventArgs) Handles Panel2.MouseHover
         Label8.Text = ""
+
     End Sub
     Private Sub Form1_MouseHover(sender As Object, e As EventArgs) Handles Me.MouseHover
         Label8.Text = ""
@@ -184,6 +191,7 @@
 
     Private Sub Label6_MouseHover(sender As Object, e As EventArgs) Handles Label6.MouseHover
         Label8.Text = "This number is a forcast of how many customers you will encounter today. As it is an estimate, the real number may vary, so plan accordingly"
+
     End Sub
 
 End Class
