@@ -63,6 +63,7 @@
             End If
         Next
         My.Computer.FileSystem.WriteAllText("U:\database.txt", filetext, False)
+        'Change to U at school, C at home
     End Sub
 
 
