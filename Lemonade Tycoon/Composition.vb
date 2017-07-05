@@ -69,10 +69,7 @@
                         Getsales()
 
 
-
-
-
-                        multiplier = multiplier2 * Upgrade.profitx2
+                    multiplier = multiplier2 * Upgrade.profitx2
 
 
                     moneymade = Math.Round(CInt(Form1.Label2.Text) + (((CInt(TextBox1.Text) + CInt(TextBox2.Text) + CInt(TextBox3.Text)) * actualsales) * multiplier1))
@@ -83,11 +80,12 @@
                         moneymade1 += moneymade1 * (multiplier - 1)
 
 
-                        Form1.Label2.Text = moneymade.ToString
 
-                        Form1.Label12.Text = moneymade1.ToString
+                    Form1.Label2.Text = moneymade.ToString.emma
 
-                        profit = Form1.Label12.Text
+                    Form1.Label12.Text = moneymade1.ToString
+
+                    profit = Form1.Label12.Text
 
 
 
