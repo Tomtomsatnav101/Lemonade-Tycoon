@@ -26,13 +26,6 @@
     Public actualsales As Integer
 
     Dim variance As Integer
-
-
-
-
-
-
-
     Sub money()
 
         Try
@@ -56,83 +49,77 @@
                     Form1.Label4.Text = CInt(Form1.Label4.Text) - actualsales * CInt(TextBox1.Text)
                     Form1.Label5.Text = CInt(Form1.Label5.Text) - actualsales * CInt(TextBox2.Text)
                     Form1.Label7.Text = CInt(Form1.Label7.Text) - actualsales * CInt(TextBox3.Text)
-                    totalsales = totalsales + actualsales
+                    totalsales += actualsales
 
 
                     progress = totalsales
-                        composition(0) = CInt(TextBox1.Text)
-                        composition(1) = CInt(TextBox2.Text)
-                        composition(2) = CInt(TextBox3.Text)
+                    composition(0) = CInt(TextBox1.Text)
+                    composition(1) = CInt(TextBox2.Text)
+                    composition(2) = CInt(TextBox3.Text)
 
 
-                        weather()
-                        Getsales()
+                    weather()
+                    Getsales()
 
 
 
 
 
-                        multiplier = multiplier2 * Upgrade.profitx2
+                    multiplier = multiplier2 * Upgrade.profitx2
 
 
                     moneymade = Math.Round(CInt(Form1.Label2.Text) + (((CInt(TextBox1.Text) + CInt(TextBox2.Text) + CInt(TextBox3.Text)) * actualsales) * multiplier1))
 
-
                     moneymade1 = moneymade - Form1.startmoney
                     moneymade += moneymade1 * (multiplier - 1)
-                        moneymade1 += moneymade1 * (multiplier - 1)
+                    moneymade1 += moneymade1 * (multiplier - 1)
 
 
-                        Form1.Label2.Text = moneymade.ToString
+                    Form1.Label2.Text = moneymade.ToString
 
-                        Form1.Label12.Text = moneymade1.ToString
+                    Form1.Label12.Text = moneymade1.ToString
 
-                        profit = Form1.Label12.Text
-
-
+                    profit = Form1.Label12.Text
 
 
-
-
-
-                        If profit < 0 Then
+                    If profit < 0 Then
                         Form1.PictureBox5.ImageLocation = "U:\Pictures\redprofit.png"
                     ElseIf profit > -1 Then
                         Form1.PictureBox5.ImageLocation = "U:\Pictures\profit.png"
 
                     End If
 
-                        Form1.startmoney = Form1.Label2.Text
-                        If CInt(Form1.Label12.Text) > 0 Then
-                            Form1.Label12.ForeColor = Color.Green
-                        ElseIf CInt(Form1.Label12.Text) < 0 Then
-                            Form1.Label12.ForeColor = Color.Red
-                        Else
-                            Form1.Label12.ForeColor = Color.Black
-                        End If
-
-
-
-                        If Math.Log10(progress) >= 5 Then
-                            ProgressBar1.Value = 5
-                        Else
-                            ProgressBar1.Value = Math.Log10(progress)
-
-
-                        End If
-
-
-                        Form1.liquidcost = 0
+                    Form1.startmoney = Form1.Label2.Text
+                    If CInt(Form1.Label12.Text) > 0 Then
+                        Form1.Label12.ForeColor = Color.Green
+                    ElseIf CInt(Form1.Label12.Text) < 0 Then
+                        Form1.Label12.ForeColor = Color.Red
+                    Else
+                        Form1.Label12.ForeColor = Color.Black
                     End If
 
 
 
+                    If Math.Log10(progress) >= 5 Then
+                        ProgressBar1.Value = 5
+                    Else
+                        ProgressBar1.Value = Math.Log10(progress)
 
 
+                    End If
 
 
-
+                    Form1.liquidcost = 0
                 End If
+
+
+
+
+
+
+
+
+            End If
         Catch ex As Exception
             MsgBox("Check your ingredients")
         End Try
@@ -188,12 +175,7 @@
         Form1.Label3.Text = Form1.reputation.ToString
         Form1.Label6.Text = Form1.customers.ToString
 
-
         Getstar()
-
-
-
-
 
         Form1.weather = CInt(Rnd() * 2)
         If Form1.weather = 0 Then

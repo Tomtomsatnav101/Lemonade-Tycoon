@@ -20,10 +20,10 @@
     Public usercount As Integer = 1
 
     Public Sub read()
-        If My.Computer.FileSystem.FileExists("U:\database.txt") Then
-            Dim filetext As String = My.Computer.FileSystem.ReadAllText("U:\database.txt")
+        If My.Computer.FileSystem.FileExists("C:\Users\Tom\Documents\Database\database.txt") Then
+            Dim filetext As String = My.Computer.FileSystem.ReadAllText("C:\Users\Tom\Documents\Database\database.txt")
             Dim records() As String = filetext.Split("▓")
-            For i As Integer = 0 To records.Length - 1
+            For i As Integer = 0 To records.Length - 2
                 Dim fields() As String = records(i).Split("▒")
                 database(usercount).ID = fields(0)
                 database(usercount).username = fields(1)
@@ -40,7 +40,7 @@
                 usercount += 1
             Next
         Else
-            My.Computer.FileSystem.WriteAllText("U:\database.txt", "", False)
+            My.Computer.FileSystem.WriteAllText("C:\Users\Tom\Documents\Database\database.txt", "", False)
         End If
     End Sub
 
@@ -62,7 +62,7 @@
                 filetext += database(i).expected.ToString + "▓"
             End If
         Next
-        My.Computer.FileSystem.WriteAllText("U:\database.txt", filetext, False)
+        My.Computer.FileSystem.WriteAllText("C:\Users\Tom\Documents\Database\database.txt", filetext, False)
         'Change to U at school, C at home
     End Sub
 

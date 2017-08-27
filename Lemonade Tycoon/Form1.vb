@@ -81,16 +81,16 @@
         weather = CInt(Rnd() * 2)
         If weather = 0 Then
             PictureBox6.ImageLocation = "U:\Pictures\sunny.PNG"
+            MsgBox("Sunny")
         ElseIf weather = 1 Then
             PictureBox6.ImageLocation = "U:\Pictures\cold.PNG"
+            MsgBox("Cold")
         ElseIf weather = 2 Then
             PictureBox6.ImageLocation = "U:\Pictures\meh.png"
+            MsgBox("Meh")
         Else
 
         End If
-
-
-
 
     End Sub
 
@@ -111,9 +111,9 @@
     End Sub
 
     Private Sub Button24_Click(sender As Object, e As EventArgs) Handles Button24.Click
-
-
-
+        save()
+    End Sub
+    Sub save()
         Database.database(Log_in.number).money = Label2.Text
         Database.database(Log_in.number).score = Label2.Text
 
@@ -129,7 +129,6 @@
         Database.write()
         End
     End Sub
-
     Private Sub Button25_Click(sender As Object, e As EventArgs) Handles Button25.Click
         Me.Hide()
         Leaderboard.Show()
@@ -194,4 +193,7 @@
 
     End Sub
 
+    Private Sub Form1_FormClosing(sender As Object, e As FormClosingEventArgs) Handles Me.FormClosing
+        save()
+    End Sub
 End Class

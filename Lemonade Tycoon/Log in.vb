@@ -1,38 +1,37 @@
 ﻿Public Class Log_in
     Dim taken As Boolean = 0
     Public number As Integer
+    Dim login As Boolean
+    Dim lognum As Integer = Nothing
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-
-
-
-
-
 
         If TextBox1.Text = "" Or TextBox2.Text = "" Then
         Else
 
             For i As Integer = 1 To Database.usercount
                 If Database.database(i).username = TextBox1.Text And Database.database(i).password = TextBox2.Text Then
-
-                    Form1.Label4.Text = Database.database(i).lemons.ToString
-                    Form1.Label5.Text = Database.database(i).sugar.ToString
-                    Form1.Label7.Text = Database.database(i).ice.ToString
-                    Form1.Label12.Text = Database.database(i).profit.ToString
-                    Composition.totalsales = Database.database(i).customers
-                    Form1.Label2.Text = Database.database(i).money.ToString
-                    Form1.Label3.Text = Database.database(i).reputation.ToString
-                    Form1.Label6.Text = Database.database(i).expected.ToString
-                    Me.Hide()
-                    Form1.Show()
-                    number = i
+                    lognum = i
 
                 Else
                 End If
-
             Next
-
-
         End If
+        If lognum = Nothing Then
+            MsgBox("Incorrect username or password")
+        Else
+            Form1.Label4.Text = Database.database(lognum).lemons.ToString
+            Form1.Label5.Text = Database.database(lognum).sugar.ToString
+            Form1.Label7.Text = Database.database(lognum).ice.ToString
+            Form1.Label12.Text = Database.database(lognum).profit.ToString
+            Composition.totalsales = Database.database(lognum).customers
+            Form1.Label2.Text = Database.database(lognum).money.ToString
+            Form1.Label3.Text = Database.database(lognum).reputation.ToString
+            Form1.Label6.Text = Database.database(lognum).expected.ToString
+            Me.Hide()
+            Form1.Show()
+            number = lognum
+        End If
+
     End Sub
 
     Private Sub Log_in_Load(sender As Object, e As EventArgs) Handles MyBase.Load
