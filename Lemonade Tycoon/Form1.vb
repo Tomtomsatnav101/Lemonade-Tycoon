@@ -1,13 +1,10 @@
 ﻿Public Class Form1
     Dim addstock As Integer
-    Dim startcheck As Boolean = 0
-    Dim counter As Integer = 0
     Public startmoney As Integer
     Public weather As Integer
     Public liquidcost As Integer
     Public reputation As Double = 0.5
     Public customers As Integer = 100
-    Public sales As Integer
     Public deviation As Integer
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
@@ -145,6 +142,11 @@
     Private Sub Button2_Click_1(sender As Object, e As EventArgs) Handles Button2.Click
         weather = 2
         PictureBox6.ImageLocation = "U:\Pictures\meh.png"
+        For i As Integer = 0 To AI.aicounter - 1
+            For j As Integer = 0 To 5
+                RichTextBox1.Text = RichTextBox1.Text + " " + AI.method(j, i)
+            Next
+        Next
 
         'Get rid of this in real game
     End Sub

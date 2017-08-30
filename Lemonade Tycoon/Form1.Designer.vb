@@ -60,6 +60,7 @@ Partial Class Form1
         Me.PictureBox7 = New System.Windows.Forms.PictureBox()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.Button2 = New System.Windows.Forms.Button()
+        Me.RichTextBox1 = New System.Windows.Forms.RichTextBox()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
         CType(Me.PictureBox6, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -351,6 +352,7 @@ Partial Class Form1
         'Panel3
         '
         Me.Panel3.BackColor = System.Drawing.Color.DodgerBlue
+        Me.Panel3.Controls.Add(Me.RichTextBox1)
         Me.Panel3.Controls.Add(Me.Label8)
         Me.Panel3.Controls.Add(Me.PictureBox11)
         Me.Panel3.Controls.Add(Me.PictureBox10)
@@ -445,6 +447,14 @@ Partial Class Form1
         Me.Button2.Text = "Meh"
         Me.Button2.UseVisualStyleBackColor = True
         '
+        'RichTextBox1
+        '
+        Me.RichTextBox1.Location = New System.Drawing.Point(27, 97)
+        Me.RichTextBox1.Name = "RichTextBox1"
+        Me.RichTextBox1.Size = New System.Drawing.Size(100, 96)
+        Me.RichTextBox1.TabIndex = 48
+        Me.RichTextBox1.Text = ""
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -514,4 +524,5 @@ Partial Class Form1
     Friend WithEvents PictureBox8 As PictureBox
     Friend WithEvents PictureBox7 As PictureBox
     Friend WithEvents Label8 As Label
+    Friend WithEvents RichTextBox1 As RichTextBox
 End Class

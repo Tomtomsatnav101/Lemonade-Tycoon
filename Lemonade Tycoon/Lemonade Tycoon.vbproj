@@ -72,6 +72,10 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AI.Designer.vb">
+      <DependentUpon>AI.vb</DependentUpon>
+    </Compile>
+    <Compile Include="AI.vb" />
     <Compile Include="Composition.Designer.vb">
       <DependentUpon>Composition.vb</DependentUpon>
     </Compile>

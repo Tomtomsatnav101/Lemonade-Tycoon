@@ -22,10 +22,11 @@
     Dim moneymade As Integer
     Dim moneymade1 As Integer
 
-
     Public actualsales As Integer
 
     Dim variance As Integer
+
+    Public AIcounter As Integer = 0
     Sub money()
 
         Try
@@ -33,20 +34,24 @@
                 MsgBox("Check your Ingredients")
 
             Else
-
-                If Form1.customers <= CInt(TextBox4.Text) Then
-                    actualsales = Form1.customers
+                If AI.maxcustomers > Form1.customers Then
                 Else
-                    actualsales = CInt(TextBox4.Text)
-
+                    Form1.customers = AI.maxcustomers
                 End If
 
+                If Form1.customers <= CInt(TextBox4.Text) Then
+                        actualsales = Form1.customers
+                    Else
+                        actualsales = CInt(TextBox4.Text)
 
-                If CInt(Label4.Text) >= CInt(TextBox1.Text) * CInt(TextBox4.Text) And CInt(Label5.Text) >= CInt(TextBox2.Text) * CInt(TextBox4.Text) And CInt(Label6.Text) >= CInt(TextBox3.Text) * CInt(TextBox4.Text) Then
+                    End If
+
+
+                    If CInt(Label4.Text) >= CInt(TextBox1.Text) * CInt(TextBox4.Text) And CInt(Label5.Text) >= CInt(TextBox2.Text) * CInt(TextBox4.Text) And CInt(Label6.Text) >= CInt(TextBox3.Text) * CInt(TextBox4.Text) Then
 
 
 
-                    Form1.Label4.Text = CInt(Form1.Label4.Text) - actualsales * CInt(TextBox1.Text)
+                        Form1.Label4.Text = CInt(Form1.Label4.Text) - actualsales * CInt(TextBox1.Text)
                     Form1.Label5.Text = CInt(Form1.Label5.Text) - actualsales * CInt(TextBox2.Text)
                     Form1.Label7.Text = CInt(Form1.Label7.Text) - actualsales * CInt(TextBox3.Text)
                     totalsales += actualsales
@@ -130,7 +135,10 @@
 
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-
+        MsgBox(Form1.customers.ToString)
+        AIcounter += 1
+        AI.main()
+        MsgBox(Form1.customers.ToString)
         Dim num As New Random
         variance = num.Next(-10, 10)
         Form1.deviation = variance * CInt(Form1.reputation)
@@ -191,6 +199,13 @@
 
         Me.Hide()
         Form1.Show()
+
+        If AIcounter = 1 Then
+            MsgBox("A rival company has set up near you...")
+        End If
+
+        AI.aitry()
+
     End Sub
 
     Sub Getsales()
