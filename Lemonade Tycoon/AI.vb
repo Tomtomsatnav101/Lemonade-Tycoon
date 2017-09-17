@@ -12,6 +12,14 @@
     Public aideviation As Integer
     Public aicounter As Integer = 0
 
+    Public ailemon As Integer = 0
+    Public aisugar As Integer = 0
+    Public aiice As Integer = 0
+
+
+
+
+
     Sub main()
         If Composition.AIcounter >= 1 Then
             competition()
@@ -31,7 +39,23 @@
         ElseIf Form1.weather = 2 Then
             method(0, aicounter) = "Meh"
         End If
+
+        Composition.turn = 1
+
+        Composition.money(Composition.turn)
+
+
+
     End Sub
+
+    Sub aicomposition()
+
+
+    End Sub
+
+
+
+
 
 End Module
 
