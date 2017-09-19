@@ -19,7 +19,7 @@
     Public database(1000) As account
     Public usercount As Integer = 1
 
-    Public Sub read()
+    Public Sub read()                                           ' CHANGE
         If My.Computer.FileSystem.FileExists("C:\Users\Tom\Documents\Database\database.txt") Then
             Dim filetext As String = My.Computer.FileSystem.ReadAllText("C:\Users\Tom\Documents\Database\database.txt")
             Dim records() As String = filetext.Split("▓")
@@ -41,7 +41,7 @@
             Next
         Else
             My.Computer.FileSystem.WriteAllText("C:\Users\Tom\Documents\Database\database.txt", "", False)
-        End If
+        End If                                                      ' CHANGE
     End Sub
 
     Public Sub write()
@@ -63,7 +63,7 @@
             End If
         Next
         My.Computer.FileSystem.WriteAllText("C:\Users\Tom\Documents\Database\database.txt", filetext, False)
-        'Change to U at school, C at home
+        'Change to U at school, C at home                      'CHANGE
     End Sub
 
 

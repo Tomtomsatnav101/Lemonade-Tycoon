@@ -26,7 +26,7 @@
 
     Dim variance As Integer
 
-    Public AIcounter As Integer = 0
+    Public AIstart As Integer = 0
     Public turn As Boolean
     Sub money(ByVal turn As Boolean)
 
@@ -53,7 +53,6 @@
                 totalsales += actualsales
             Else
 
-
             End If
 
 
@@ -63,13 +62,20 @@
                 composition(1) = CInt(TextBox2.Text)
                 composition(2) = CInt(TextBox3.Text)
             Else
-
+                AI.aiprogress = AI.aitotalsales
+                composition(0) = AI.ailemon / 100
+                composition(1) = AI.aisugar / 100
+                composition(2) = AI.aiice / 100
 
             End If
 
             weather()
-            Getsales()
+            If turn = 0 Then
+                Getsales(progress)
+            Else
+                Getsales(aiprogress)
 
+            End If
 
 
 
@@ -98,7 +104,7 @@
                     Form1.PictureBox5.ImageLocation = "U:\Pictures\redprofit.png"
                 ElseIf profit > -1 Then
                     Form1.PictureBox5.ImageLocation = "U:\Pictures\profit.png"
-
+                    'CHANGE
                 End If
 
                 Form1.startmoney = Form1.Label2.Text
@@ -111,6 +117,10 @@
                 End If
 
             Else
+                'money left                                         stock                                              sales           dont change
+                AI.aimoney = Math.Round(AI.aimoney + ((((AI.ailemon / 100) + (AI.aisugar / 100) + (AI.aiice)) * AI.aiactualcustomers) * (multiplier1 + multiplier2)))
+
+
             End If
 
             If turn = 0 Then
@@ -119,7 +129,6 @@
                     ProgressBar1.Value = 5
                 Else
                     ProgressBar1.Value = Math.Log10(progress)
-
 
                 End If
 
@@ -147,7 +156,7 @@
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         MsgBox(Form1.customers.ToString)
-        AIcounter += 1
+        AIstart += 1
         AI.main()
         MsgBox(Form1.customers.ToString)
         Dim num As New Random
@@ -210,7 +219,7 @@
                     Form1.PictureBox6.ImageLocation = "U:\Pictures\cold.PNG"
                 ElseIf Form1.weather = 2 Then
                     Form1.PictureBox6.ImageLocation = "U:\Pictures\meh.png"
-                Else
+                Else                                                    'CHANGE
 
                 End If
 
@@ -227,7 +236,7 @@
         End If
     End Sub
 
-    Sub Getsales()
+    Sub Getsales(ByVal progress As Integer)
         multiplier1 = ((Math.Log10(progress)) / 100) + 1
     End Sub
 
@@ -258,7 +267,7 @@
     End Sub
 
     Public Sub Getstar()
-
+        'CHANGE
         If Form1.reputation > 0.6 Then
             Form1.PictureBox7.ImageLocation = "U:\Pictures\Star.Png"
             If Form1.reputation > 0.8 Then

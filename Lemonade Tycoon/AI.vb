@@ -4,6 +4,7 @@
     Dim aireputation As Double = 0.5
     Public maxcustomers As Integer
     Dim aimaxcustomers As Integer
+    Public aiactualcustomers As Integer
 
     Public method(5, 100) As String
 
@@ -15,13 +16,14 @@
     Public ailemon As Integer = 0
     Public aisugar As Integer = 0
     Public aiice As Integer = 0
+    Public aimoney As Integer = 1000
 
-
-
-
+    Public aiinitialmoney As Integer
+    Public aitotalsales As Integer
+    Public aiprogress As Integer
 
     Sub main()
-        If Composition.AIcounter >= 1 Then
+        If Composition.AIstart >= 1 Then
             competition()
         End If
 
@@ -40,21 +42,39 @@
             method(0, aicounter) = "Meh"
         End If
 
+
+        aiinitialmoney = aimoney
+
+        Randomize()
+        Dim num1 As New Random
+        Dim num2 As New Random
+        Dim num3 As New Random
+
+
+        ailemon += 100 * num1.Next(1, 3)
+        aisugar += 100 * num2.Next(1, 3)
+        aiice += 100 * num3.Next(1, 3)
+
+
+        aimoney = aimoney - aiice - ailemon - aisugar
+
+        method(1, aicounter) = ailemon / 100
+        method(2, aicounter) = aisugar / 100
+        method(3, aicounter) = aiice / 100
+
+
         Composition.turn = 1
 
         Composition.money(Composition.turn)
 
+        method(4, aicounter) = aimoney - aiinitialmoney
+
+
+        aicounter += 1
+
 
 
     End Sub
-
-    Sub aicomposition()
-
-
-    End Sub
-
-
-
 
 
 End Module

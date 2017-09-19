@@ -76,7 +76,7 @@
         Randomize()
 
         weather = CInt(Rnd() * 2)
-        If weather = 0 Then
+        If weather = 0 Then                   'CHANGE
             PictureBox6.ImageLocation = "U:\Pictures\sunny.PNG"
             MsgBox("Sunny")
         ElseIf weather = 1 Then
@@ -141,7 +141,7 @@
 
     Private Sub Button2_Click_1(sender As Object, e As EventArgs) Handles Button2.Click
         weather = 2
-        PictureBox6.ImageLocation = "U:\Pictures\meh.png"
+        PictureBox6.ImageLocation = "U:\Pictures\meh.png"                                               'CHANGE
         For i As Integer = 0 To AI.aicounter - 1
             For j As Integer = 0 To 5
                 RichTextBox1.Text = RichTextBox1.Text + " " + AI.method(j, i)
