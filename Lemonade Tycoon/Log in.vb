@@ -7,7 +7,7 @@
 
         If TextBox1.Text = "" Or TextBox2.Text = "" Then
         Else
-
+            'Finds the position of the record in the database
             For i As Integer = 1 To Database.usercount
                 If Database.database(i).username = TextBox1.Text And Database.database(i).password = TextBox2.Text Then
                     lognum = i
@@ -17,7 +17,7 @@
             Next
         End If
         If lognum = Nothing Then
-            MsgBox("Incorrect username or password")
+            MsgBox("Incorrect username or password")                            ' If the account exists, set all th appropriate variables
         Else
             Form1.Label4.Text = Database.database(lognum).lemons.ToString
             Form1.Label5.Text = Database.database(lognum).sugar.ToString
@@ -35,7 +35,7 @@
     End Sub
 
     Private Sub Log_in_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        Database.read()
+        Database.read() 'Loads the databasse
     End Sub
 
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
@@ -59,7 +59,7 @@
                 Form1.Label7.Text = 0
                 Database.database(Database.usercount).ice = 0
                 Form1.Label12.Text = 0
-                Database.database(Database.usercount).profit = 0
+                Database.database(Database.usercount).profit = 0      'Checks to see if a username is already taken, then sets all its variables to zero
                 Composition.totalsales = 0
                 Database.database(Database.usercount).customers = 0
                 Form1.Label2.Text = 1000

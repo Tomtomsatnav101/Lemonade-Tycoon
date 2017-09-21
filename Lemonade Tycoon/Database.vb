@@ -20,10 +20,10 @@
     Public usercount As Integer = 1
 
     Public Sub read()                                           ' CHANGE
-        If My.Computer.FileSystem.FileExists("C:\Users\Tom\Documents\Database\database.txt") Then
+        If My.Computer.FileSystem.FileExists("C:\Users\Tom\Documents\Database\database.txt") Then                 'If playing on a computer that has run the game before then
             Dim filetext As String = My.Computer.FileSystem.ReadAllText("C:\Users\Tom\Documents\Database\database.txt")
             Dim records() As String = filetext.Split("▓")
-            For i As Integer = 0 To records.Length - 2
+            For i As Integer = 0 To records.Length - 2                              'Break up each entry into its component parts, and work out which numbers represent which variable
                 Dim fields() As String = records(i).Split("▒")
                 database(usercount).ID = fields(0)
                 database(usercount).username = fields(1)
@@ -40,7 +40,7 @@
                 usercount += 1
             Next
         Else
-            My.Computer.FileSystem.WriteAllText("C:\Users\Tom\Documents\Database\database.txt", "", False)
+            My.Computer.FileSystem.WriteAllText("C:\Users\Tom\Documents\Database\database.txt", "", False) 'If it doesn't exist, make it exist
         End If                                                      ' CHANGE
     End Sub
 
@@ -48,7 +48,7 @@
         Dim filetext As String = ""
         For i As Integer = 0 To database.Length - 1
             If database(i).username <> Nothing Then
-                filetext += database(i).ID.ToString + "▒"
+                filetext += database(i).ID.ToString + "▒"                   'add the current variables to the database filetext
                 filetext += database(i).username + "▒"
                 filetext += database(i).money.ToString + "▒"
                 filetext += database(i).score.ToString + "▒"
@@ -62,7 +62,7 @@
                 filetext += database(i).expected.ToString + "▓"
             End If
         Next
-        My.Computer.FileSystem.WriteAllText("C:\Users\Tom\Documents\Database\database.txt", filetext, False)
+        My.Computer.FileSystem.WriteAllText("C:\Users\Tom\Documents\Database\database.txt", filetext, False)   'save the database
         'Change to U at school, C at home                      'CHANGE
     End Sub
 

@@ -9,21 +9,21 @@
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         addstock = 1
-        Getstock(HScrollBar1.Value, 0, 0)
+        Getstock(HScrollBar1.Value, 0, 0)                                   'takes the value of the slider and adds it to the appropriate stock level
     End Sub
     Private Sub Button6_Click(sender As Object, e As EventArgs) Handles Button6.Click
-        addstock = 2
+        addstock = 2                                                        'takes the value of the slider and adds it to the appropriate stock level
         Getstock(0, HScrollBar1.Value, 0)
     End Sub
     Private Sub Button9_Click(sender As Object, e As EventArgs) Handles Button9.Click
-        addstock = 3
+        addstock = 3                                                         'takes the value of the slider and adds it to the appropriate stock level
         Getstock(0, 0, HScrollBar1.Value)
     End Sub
     Sub Getstock(Pluslemons, Plussugar, plusice)
         If addstock = 1 Then
 
             If Label2.Text >= Pluslemons Then
-                Label4.Text = CInt(Label4.Text + Pluslemons)
+                Label4.Text = CInt(Label4.Text + Pluslemons)     'Add lemons and take money
                 Label2.Text = CInt(Label2.Text - Pluslemons)
 
             Else
@@ -32,7 +32,7 @@
         ElseIf addstock = 2 Then
 
             If Label2.Text >= Plussugar Then
-                Label5.Text = CInt(Label5.Text + Plussugar)
+                Label5.Text = CInt(Label5.Text + Plussugar)    'Add sugar and take money
                 Label2.Text = CInt(Label2.Text - Plussugar)
             Else
 
@@ -40,7 +40,7 @@
         ElseIf addstock = 3 Then
 
             If Label2.Text >= plusice Then
-                Label7.Text = CInt(Label7.Text + plusice)
+                Label7.Text = CInt(Label7.Text + plusice)    'Add ice and take money
                 Label2.Text = CInt(Label2.Text - plusice)
             Else
             End If

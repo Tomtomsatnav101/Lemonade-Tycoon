@@ -30,9 +30,9 @@
     Public turn As Boolean
     Sub money(ByVal turn As Boolean)
 
-        Try
+        'Try
 
-            If AI.maxcustomers > Form1.customers Then
+        If AI.maxcustomers > Form1.customers Then
                 Else
                     Form1.customers = AI.maxcustomers
                 End If
@@ -145,9 +145,9 @@
 
 
 
-        Catch ex As Exception
-            MsgBox("Check your ingredients")
-        End Try
+        'Catch ex As Exception
+        'MsgBox("Check your ingredients")
+        'End Try
 
 
 
@@ -231,7 +231,7 @@
                     MsgBox("A rival company has set up near you...")
                 End If
 
-                AI.aitry()
+                ' AI.aitry()
             End If
         End If
     End Sub
