@@ -37,10 +37,10 @@
                     Form1.customers = AI.maxcustomers
                 End If
 
-                If Form1.customers <= CInt(TextBox4.Text) Then
-                    actualsales = Form1.customers
-                Else
-                    actualsales = CInt(TextBox4.Text)
+        If Form1.customers <= CInt(TextBox4.Text) Then          'Works out whether the player made enough drinks for today, and works out which one is the sales for the day 
+            actualsales = Form1.customers
+        Else
+            actualsales = CInt(TextBox4.Text)
 
                 End If
 
@@ -49,17 +49,17 @@
             If turn = 0 Then
                 Form1.Label4.Text = CInt(Form1.Label4.Text) - actualsales * CInt(TextBox1.Text)
                 Form1.Label5.Text = CInt(Form1.Label5.Text) - actualsales * CInt(TextBox2.Text)
-                Form1.Label7.Text = CInt(Form1.Label7.Text) - actualsales * CInt(TextBox3.Text)
-                totalsales += actualsales
-            Else
+            Form1.Label7.Text = CInt(Form1.Label7.Text) - actualsales * CInt(TextBox3.Text)         'Re-calculates the stock levels based of the number of sales you have
+            totalsales += actualsales   'calculates the total sales using today's sales
+        Else
 
             End If
 
 
             If turn = 0 Then
-                progress = totalsales
-                composition(0) = CInt(TextBox1.Text)
-                composition(1) = CInt(TextBox2.Text)
+            progress = totalsales   'Sets the progress bar level
+            composition(0) = CInt(TextBox1.Text)    'Sets the compesition array used to calculate multipliers
+            composition(1) = CInt(TextBox2.Text)
                 composition(2) = CInt(TextBox3.Text)
             Else
                 AI.aiprogress = AI.aitotalsales
@@ -78,47 +78,53 @@
             End If
 
 
-
-            If turn = 0 Then
+        'Combines the multipliers into one multiplier to make it wasier to deal with
+        If turn = 0 Then
                 multiplier = multiplier2 * Upgrade.profitx2
             Else
                 multiplier = multiplier2
             End If
 
-            If turn = 0 Then
-                moneymade = Math.Round(CInt(Form1.Label2.Text) + (((CInt(TextBox1.Text) + CInt(TextBox2.Text) + CInt(TextBox3.Text)) * actualsales) * multiplier1))
+        If turn = 0 Then
+            'money made is equal to the surrent money plus the money made times the multiplier
+            moneymade = Math.Round(CInt(Form1.Label2.Text) + (((CInt(TextBox1.Text) + CInt(TextBox2.Text) + CInt(TextBox3.Text)) * actualsales) * multiplier1))
 
-                moneymade1 = moneymade - Form1.startmoney
-                moneymade += moneymade1 * (multiplier - 1)
-                moneymade1 += moneymade1 * (multiplier - 1)
+            'money made 1 is equal to the money the plauyer has minus the money the player had at the start of the turn ie. moneymade1 is the profit from this turn
+            moneymade1 = moneymade - Form1.startmoney
+
+            'moneymade is equal to  profit times the multiplier minus 1
+            moneymade += moneymade1 * (multiplier - 1)
+
+            'moneymade1 is equal to itself times multiplier minus 1
+            moneymade1 += moneymade1 * (multiplier - 1)
+
+            'The users money is equal to moneymade
+            Form1.Label2.Text = moneymade.ToString
+
+            'The users profit is equal to moneymade1
+            Form1.Label12.Text = moneymade1.ToString
+            profit = Form1.Label12.Text
 
 
-                Form1.Label2.Text = moneymade.ToString
+            If profit < 0 Then
+                Form1.PictureBox5.ImageLocation = "U:\Pictures\redprofit.png"
+            ElseIf profit > -1 Then
+                Form1.PictureBox5.ImageLocation = "U:\Pictures\profit.png"
+                'CHANGE
+            End If
 
-                Form1.Label12.Text = moneymade1.ToString
-
-                profit = Form1.Label12.Text
-
-
-                If profit < 0 Then
-                    Form1.PictureBox5.ImageLocation = "U:\Pictures\redprofit.png"
-                ElseIf profit > -1 Then
-                    Form1.PictureBox5.ImageLocation = "U:\Pictures\profit.png"
-                    'CHANGE
-                End If
-
-                Form1.startmoney = Form1.Label2.Text
-                If CInt(Form1.Label12.Text) > 0 Then
-                    Form1.Label12.ForeColor = Color.Green
-                ElseIf CInt(Form1.Label12.Text) < 0 Then
-                    Form1.Label12.ForeColor = Color.Red
-                Else
-                    Form1.Label12.ForeColor = Color.Black
-                End If
-
+            Form1.startmoney = Form1.Label2.Text
+            If CInt(Form1.Label12.Text) > 0 Then
+                Form1.Label12.ForeColor = Color.Green
+            ElseIf CInt(Form1.Label12.Text) < 0 Then
+                Form1.Label12.ForeColor = Color.Red
             Else
-                'money left                                         stock                                              sales           dont change
-                AI.aimoney = Math.Round(AI.aimoney + ((((AI.ailemon / 100) + (AI.aisugar / 100) + (AI.aiice)) * AI.aiactualcustomers) * (multiplier1 + multiplier2)))
+                Form1.Label12.ForeColor = Color.Black
+            End If
+
+        Else
+            'money left                                         stock                                              sales           dont change
+            AI.aimoney = Math.Round(AI.aimoney + ((((AI.ailemon / 100) + (AI.aisugar / 100) + (AI.aiice)) * AI.aiactualcustomers) * (multiplier1 + multiplier2)))
 
 
             End If
@@ -237,22 +243,23 @@
     End Sub
 
     Sub Getsales(ByVal progress As Integer)
+        'Works out the bonus based on the number of past customers
         multiplier1 = ((Math.Log10(progress)) / 100) + 1
     End Sub
 
     Sub weather()
 
-        ideallemon = ((composition(0)) / (composition(0) + composition(1) + composition(2)))
+        ideallemon = ((composition(0)) / (composition(0) + composition(1) + composition(2)))           'Works out the proportions of each stock item
         idealsugar = ((composition(1)) / (composition(0) + composition(1) + composition(2)))
         idealice = ((composition(2)) / (composition(0) + composition(1) + composition(2)))
 
-        idealhot = (ideallemon + idealsugar) / idealice
+        idealhot = (ideallemon + idealsugar) / idealice     'Works out how close the user is to achieving the perfect ratio for the weather
         idealcold = (ideallemon - idealice) / idealsugar
 
         If Form1.weather = 0 Then
-            multiplier2 = 2 - (1 - Math.Abs(idealhot))
+            multiplier2 = 2 - (1 - Math.Abs(idealhot))      'Sets the multiplier based on how close the user is to the ideal mix for that weather
         ElseIf Form1.weather = 1 Then
-            multiplier2 = 2 - Math.Abs(idealcold)
+            multiplier2 = 2 - Math.Abs(idealcold)           'The further off the user is, the worse the bonus, until the bonus is 1
         Else
             multiplier2 = 1
         End If
@@ -268,6 +275,8 @@
 
     Public Sub Getstar()
         'CHANGE
+
+        'Works out how many stars to show based onthe reputation levels
         If Form1.reputation > 0.6 Then
             Form1.PictureBox7.ImageLocation = "U:\Pictures\Star.Png"
             If Form1.reputation > 0.8 Then

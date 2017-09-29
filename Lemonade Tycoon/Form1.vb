@@ -54,7 +54,7 @@
 
         Composition.Show()
         Me.Hide()
-
+        'Takes you to the composition screen
         Composition.Label4.Text = Label4.Text
         Composition.Label5.Text = Label5.Text
         Composition.Label6.Text = Label7.Text
@@ -63,6 +63,7 @@
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
+        'sets the inital variables
         startmoney = Label2.Text
         reputation = Label3.Text
 
@@ -75,6 +76,7 @@
 
         Randomize()
 
+        'Generates the waether
         weather = CInt(Rnd() * 2)
         If weather = 0 Then                   'CHANGE
             PictureBox6.ImageLocation = "U:\Pictures\sunny.PNG"
@@ -93,6 +95,8 @@
 
 
     Private Sub Button20_Click(sender As Object, e As EventArgs) Handles Button20.Click
+
+        'Liquidates stock ie. sells the stock back the wholesaler for a small loss
         Label2.Text += Math.Round((CInt(Label4.Text) + CInt(Label5.Text) + CInt(Label7.Text)) * 0.9)
         liquidcost = Math.Round((CInt(Label4.Text) + CInt(Label5.Text) + CInt(Label7.Text)) * 0.1)
         Label4.Text = "0"
@@ -102,6 +106,7 @@
     End Sub
 
     Private Sub Button21_Click(sender As Object, e As EventArgs) Handles Button21.Click
+        'Takes you to the upgrade screen
         Me.Hide()
         Upgrade.Show()
         Upgrade.Label2.Text = Label2.Text
@@ -111,9 +116,10 @@
         save()
     End Sub
     Sub save()
+
+        'Saves the users stats to their appropriate place in the database
         Database.database(Log_in.number).money = Label2.Text
         Database.database(Log_in.number).score = Label2.Text
-
         Database.database(Log_in.number).customers = Composition.totalsales
         Database.database(Log_in.number).lemons = Label4.Text
         Database.database(Log_in.number).sugar = Label5.Text
@@ -127,13 +133,14 @@
         End
     End Sub
     Private Sub Button25_Click(sender As Object, e As EventArgs) Handles Button25.Click
+        'Takes you to the leaderboard screen
         Me.Hide()
         Leaderboard.Show()
     End Sub
 
-
-
     Private Sub HScrollBar1_Scroll(sender As Object, e As ScrollEventArgs) Handles HScrollBar1.Scroll
+
+        'Sets the value of the add stock buttons based on the scroll bar level
         Button1.Text = HScrollBar1.Value.ToString + " Lemons"
         Button6.Text = HScrollBar1.Value.ToString + " Sugar"
         Button9.Text = HScrollBar1.Value.ToString + " Ice"
@@ -154,8 +161,7 @@
 
 
     Private Sub Panel2_MouseHover(sender As Object, e As EventArgs) Handles Panel2.MouseHover
-        Label8.Text = ""
-
+        Label8.Text = ""                                        'Various help features
     End Sub
     Private Sub Form1_MouseHover(sender As Object, e As EventArgs) Handles Me.MouseHover
         Label8.Text = ""
@@ -196,6 +202,6 @@
     End Sub
 
     Private Sub Form1_FormClosing(sender As Object, e As FormClosingEventArgs) Handles Me.FormClosing
-        save()
+        save() 'saves the game even if you close it without pressing the save and quit button
     End Sub
 End Class

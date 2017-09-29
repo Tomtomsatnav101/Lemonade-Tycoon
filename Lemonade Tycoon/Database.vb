@@ -48,7 +48,7 @@
         Dim filetext As String = ""
         For i As Integer = 0 To database.Length - 1
             If database(i).username <> Nothing Then
-                filetext += database(i).ID.ToString + "▒"                   'add the current variables to the database filetext
+                filetext += database(i).ID.ToString + "▒"                   'adds the current variables to the database filetext
                 filetext += database(i).username + "▒"
                 filetext += database(i).money.ToString + "▒"
                 filetext += database(i).score.ToString + "▒"
@@ -62,7 +62,7 @@
                 filetext += database(i).expected.ToString + "▓"
             End If
         Next
-        My.Computer.FileSystem.WriteAllText("C:\Users\Tom\Documents\Database\database.txt", filetext, False)   'save the database
+        My.Computer.FileSystem.WriteAllText("C:\Users\Tom\Documents\Database\database.txt", filetext, False)   'save the database filetext
         'Change to U at school, C at home                      'CHANGE
     End Sub
 
