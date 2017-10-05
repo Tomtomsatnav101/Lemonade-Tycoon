@@ -151,7 +151,7 @@
         PictureBox6.ImageLocation = "U:\Pictures\meh.png"                                               'CHANGE
         For i As Integer = 0 To AI.aicounter - 1
             For j As Integer = 0 To 5
-                RichTextBox1.Text = RichTextBox1.Text + " " + AI.method(j, i)
+                'RichTextBox1.Text = RichTextBox1.Text + " " + AI.method(j, i)
             Next
         Next
 
