@@ -2,13 +2,12 @@
 
     Dim order As Boolean = True
 
-    Dim array(1000) As Integer
     Dim position As Integer = 0
 
-    Dim counter As Integer = 0  ' length of the array
     Dim highscores(1000) As highscore
-    
-    
+
+    Dim counter As Integer
+
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         'If order = True Then
         '    bubblesort()
@@ -77,188 +76,197 @@
 
    Sub sort()
 
-         
 
-        Dim array(1000) As highscore
-        
+
+        Dim highscores(1000) As highscore
+
 
         ListBox1.Items.Clear()
 
         For i = 0 To Database.database.Length - 1
             If Database.database(i).money <> Nothing Then
-                array(counter).score = Database.database(i).money
-                highscarrayores(counter).name = Database.database(i).username
-                            End If
+                highscores(counter).score = Database.database(i).money
+                highscores(counter).name = Database.database(i).username
+                counter += 1
+            End If
         Next
 
-            'Dim array() = {10, 44, 0, -1, 9, 100, 7, 39, 104859, -154636, 35536} 
+        'Dim array() = {10, 44, 0, -1, 9, 100, 7, 39, 104859, -154636, 35536} 
 
-            Dim inputLength As Integer = Database.database.length-1
+        Dim inputLength As Integer = counter - 1
 
-  
-            MergeSort(array, 0, array.Length - 1) 
 
-            Console.ReadLine() 
+        MergeSort(highscores, 0, counter - 1)
 
-            Console.Clear() 
 
-        
 
-  
-    End Sub 
-    
-  
 
-    Sub MergeSort(array() As Integer, lowIndex As Integer, highIndex As Integer) 
 
-  
 
-        If (lowIndex < highIndex) Then 
+    End Sub
+
+
+
+    Sub MergeSort(highscores() As highscore, lowIndex As Integer, highIndex As Integer)
+
+
+
+        If (lowIndex < highIndex) Then
 
             Dim midIndex = Math.Floor((lowIndex + highIndex) / 2)    ' Finds midpoint 
 
-  
 
-            MergeSort(array, lowIndex, midIndex)                'Splits first half of list 
 
-            MergeSort(array, midIndex + 1, highIndex)           'Splits second half of list 
+            MergeSort(highscores, lowIndex, midIndex)                'Splits first half of list 
 
-  
+            MergeSort(highscores, midIndex + 1, highIndex)           'Splits second half of list 
 
-            Merge(array, lowIndex, midIndex, highIndex) 
 
-        End If 
 
-  
+            Merge(highscores, lowIndex, midIndex, highIndex)
 
-    End Sub 
+        End If
 
-  
 
-    Sub Merge(array() As Integer, lowIndex As Integer, midIndex As Integer, highIndex As Integer) 
 
-  
+    End Sub
 
-  
+
+
+    Sub Merge(highscores() As highscore, lowIndex As Integer, midIndex As Integer, highIndex As Integer)
+
+
+
+
 
         Dim Length1 = midIndex - lowIndex + 1   'length of left list 
 
         Dim Length2 = highIndex - midIndex      'length of right list 
 
-  
 
-        Dim Left(Length1) As Integer 
 
-        Dim Right(Length2) As Integer 
+        Dim Left(Length1) As Integer
 
-  
+        Dim Right(Length2) As Integer
+
+
 
         'creating index variable to keep track of final answer 
 
-        Dim final As Integer = lowIndex 
+        Dim final As Integer = lowIndex
 
-  
 
-        Dim counterI = 0 
 
-        Dim counterJ = 0 
+        Dim counterI = 0
 
-  
+        Dim counterJ = 0
 
-  
 
-        While (counterI < Length1) 
 
-            Left(counterI) = array(lowIndex + counterI)            'Transferes array contents to L 
 
-            counterI += 1 
 
-        End While 
+        While (counterI < Length1)
 
-  
+            Left(counterI) = highscores(lowIndex + counterI).score            'Transferes array contents to L 
 
-  
+            counterI += 1
 
-        While (counterJ < Length2) 
+        End While
 
-            Right(counterJ) = array(midIndex + 1 + counterJ)        'Transferes array contents to R 
 
-            counterJ += 1 
 
-        End While 
 
-  
+
+        While (counterJ < Length2)
+
+            Right(counterJ) = highscores(midIndex + 1 + counterJ).score        'Transferes array contents to R 
+
+            counterJ += 1
+
+        End While
+
+
 
         'Reset variables from previous usage 
 
-        final = lowIndex 
+        final = lowIndex
 
-        Dim i As Integer = 0 
+        Dim i As Integer = 0
 
-        Dim j As Integer = 0 
+        Dim j As Integer = 0
 
-  
+
 
         'Merge the lists into one list 
 
-        While (i < Length1 And j < Length2) 
+        While (i < Length1 And j < Length2)
 
-  
+
 
             If (Left(i) <= Right(j)) Then   'If the value on the left is less than the value on the right then add it to the list 
 
-                array(final) = Left(i) 
+                highscores(final).score = Left(i)
 
-                i += 1 
+                i += 1
 
-            Else 
+            Else
 
-                array(final) = Right(j)      'If the value on the right is less than the value on the left then add it to the list 
+                highscores(final).score = Right(j)      'If the value on the right is less than the value on the left then add it to the list 
 
-                j += 1 
+                j += 1
 
-            End If 
+            End If
 
-            final += 1 
+            final += 1
 
-        End While 
+        End While
 
-  
+
 
         'Sorts it out if one array is empty after merging 
 
-        While (i < Length1) 
+        While (i < Length1)
 
-            array(final) = Left(i) 
+            highscores(final).score = Left(i)
 
-            i += 1 
+            i += 1
 
-            final += 1 
+            final += 1
 
-        End While 
+        End While
 
-        While (j < Length2) 
+        While (j < Length2)
 
-            array(final) = Right(j) 
+            highscores(final).score = Right(j)
 
-            j += 1 
+            j += 1
 
-            final += 1 
+            final += 1
 
-        End While 
+        End While
 
-  
+
 
         'Print our answer 
+        Dim kk As Boolean = True
+        For countercheck As Integer = 0 To counter - 2
+            If highscores(countercheck).score > highscores(countercheck + 1).score Then
+                kk = False
+            End If
 
-      
-        For counter As Integer = 0 To array.Length - 1 
+        Next
 
-            ListBox1.Items.Add(array(i).score.ToString + " : " + array(i).name)
 
-        Next 
 
-    End sub
+        If kk = False Then
+        Else
+            For counterout As Integer = 0 To counter - 1
+
+                ListBox1.Items.Add(highscores(counterout).score.ToString + " : " + highscores(counterout).name)
+
+            Next
+        End If
+    End Sub
 
     Private Sub Leaderboard_Closed(sender As Object, e As EventArgs) Handles Me.Closed
         End

@@ -18,8 +18,8 @@
     Public usercount As Integer = 1
 
     Public Sub read()                                           ' CHANGE
-        If My.Computer.FileSystem.FileExists("W:\SHARED\Shared Computer Science\database.txt") Then                 'If playing on a computer that has run the game before then
-            Dim filetext As String = My.Computer.FileSystem.ReadAllText("W:\SHARED\Shared Computer Science\database.txt")
+        If My.Computer.FileSystem.FileExists("C:\Users\tomsw\OneDrive\Documents\database.txt") Then                 'If playing on a computer that has run the game before then
+            Dim filetext As String = My.Computer.FileSystem.ReadAllText("C:\Users\tomsw\OneDrive\Documents\database.txt")               '"W:\SHARED\Shared Computer Science\database.txt"
             Dim records() As String = filetext.Split("▓")
             For i As Integer = 0 To records.Length - 2                              'Break up each entry into its component parts, and work out which numbers represent which variable
                 Dim fields() As String = records(i).Split("▒")
@@ -38,8 +38,9 @@
                 usercount += 1
             Next
         Else
-            My.Computer.FileSystem.WriteAllText("W:\SHARED\Shared Computer Science\database.txt", "", False)
-            'My.Computer.FileSystem.WriteAllText("C:\Users\Tom\Documents\Database\database.txt", "", False) 'If it doesn't exist, make it exist
+            'My.Computer.FileSystem.WriteAllText("W:\SHARED\Shared Computer Science\database.txt", "", False)
+            'My.Computer.FileSystem.WriteAllText("C:\Users\Tom\Documents\Database\database.txt", "", False)       'If it doesn't exist, make it exist
+            My.Computer.FileSystem.WriteAllText("C:\Users\tomsw\OneDrive\Documents\database.txt", "", False)
         End If                                                      ' CHANGE
     End Sub
 
@@ -61,7 +62,8 @@
                 filetext += database(i).expected.ToString + "▓"
             End If
         Next
-        My.Computer.FileSystem.WriteAllText("W:\SHARED\Shared Computer Science\database.txt", filetext, False)
+        My.Computer.FileSystem.WriteAllText("C:\Users\tomsw\OneDrive\Documents\database.txt", filetext, False)
+        'My.Computer.FileSystem.WriteAllText("W:\SHARED\Shared Computer Science\database.txt", filetext, False)
         'My.Computer.FileSystem.WriteAllText("C:\Users\Tom\Documents\Database\database.txt", filetext, False)   'save the database filetext
         'Change to U at school, C at home                      'CHANGE
     End Sub
