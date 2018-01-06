@@ -1,22 +1,22 @@
 ﻿Public Class Leaderboard
 
-    Dim order As Boolean = True
+    Dim order As Boolean = False
 
     Dim position As Integer = 0
-
-    Dim highscores(1000) As highscore
 
     Dim counter As Integer
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-        'If order = True Then
-        '    bubblesort()
-        '    order = False
-        'Else
-        '    bubblesort()
-        '    order = True
-        'End If
-        sort()
+
+        If order = True Then
+            ListBox1.Items.Clear()
+            sort()
+            order = False
+        Else
+            ListBox1.Items.Clear()          'false =   smallest
+            sort()                                     'largest
+            order = True
+        End If
 
     End Sub
 
@@ -247,25 +247,57 @@
 
 
 
-        'Print our answer 
+        'Checks our answer 
         Dim kk As Boolean = True
-        For countercheck As Integer = 0 To counter - 2
-            If highscores(countercheck).score > highscores(countercheck + 1).score Then
-                kk = False
-            End If
 
+        For countercheck As Integer = 0 To counter - 2
+                If highscores(countercheck).score > highscores(countercheck + 1).score Then
+                    kk = False
+                End If
+
+            Next
+
+
+        For l As Integer = 1 To Database.database.Length - 1
+            For m As Integer = 1 To Database.database.Length - 1
+                If Database.database(m).money = highscores(l).score Then
+                    highscores(l).name = Database.database(m).username
+                End If
+            Next
         Next
 
 
 
+        'Outputs the result forwards or backwards
+        ListBox1.Items.Clear()
         If kk = False Then
         Else
-            For counterout As Integer = 0 To counter - 1
+            If order = False Then
 
-                ListBox1.Items.Add(highscores(counterout).score.ToString + " : " + highscores(counterout).name)
+                For counterout As Integer = 0 To counter - 1
+                    If highscores(counterout).name = "" Then
+                    Else
 
-            Next
+
+                        ListBox1.Items.Add(highscores(counterout).score.ToString + " : " + highscores(counterout).name)
+                    End If
+                Next
+            Else
+                For counterout As Integer = counter - 1 To 0 Step -1
+                    If highscores(counterout).name = "" Then
+                    Else
+                        ListBox1.Items.Add(highscores(counterout).score.ToString + " : " + highscores(counterout).name)
+                    End If
+                Next
+            End If
         End If
+
+
+
+
+
+
+
     End Sub
 
     Private Sub Leaderboard_Closed(sender As Object, e As EventArgs) Handles Me.Closed
