@@ -26,68 +26,47 @@
 
     Dim variance As Integer
 
-    Public AIstart As Integer = 0
-    Public turn As Boolean
-    Sub money(ByVal turn As Boolean)
+
+    Sub money()
 
         'Try
-
-        If AI.maxcustomers > Form1.customers Then
-                Else
-                    Form1.customers = AI.maxcustomers
-                End If
 
         If Form1.customers <= CInt(TextBox4.Text) Then          'Works out whether the player made enough drinks for today, and works out which one is the sales for the day 
             actualsales = Form1.customers
         Else
             actualsales = CInt(TextBox4.Text)
 
-                End If
+        End If
 
 
 
-            If turn = 0 Then
-                Form1.Label4.Text = CInt(Form1.Label4.Text) - actualsales * CInt(TextBox1.Text)
-                Form1.Label5.Text = CInt(Form1.Label5.Text) - actualsales * CInt(TextBox2.Text)
+
+        Form1.Label4.Text = CInt(Form1.Label4.Text) - actualsales * CInt(TextBox1.Text)
+            Form1.Label5.Text = CInt(Form1.Label5.Text) - actualsales * CInt(TextBox2.Text)
             Form1.Label7.Text = CInt(Form1.Label7.Text) - actualsales * CInt(TextBox3.Text)         'Re-calculates the stock levels based of the number of sales you have
             totalsales += actualsales   'calculates the total sales using today's sales
-        Else
-
-            End If
 
 
-            If turn = 0 Then
-            progress = totalsales   'Sets the progress bar level
+        progress = totalsales   'Sets the progress bar level
             composition(0) = CInt(TextBox1.Text)    'Sets the compesition array used to calculate multipliers
             composition(1) = CInt(TextBox2.Text)
-                composition(2) = CInt(TextBox3.Text)
-            Else
-                AI.aiprogress = AI.aitotalsales
-                composition(0) = AI.ailemon / 100
-                composition(1) = AI.aisugar / 100
-                composition(2) = AI.aiice / 100
+            composition(2) = CInt(TextBox3.Text)
 
-            End If
 
-            weather()
-            If turn = 0 Then
-                Getsales(progress)
-            Else
-                Getsales(aiprogress)
+        weather()
 
-            End If
+        Getsales(progress)
+
 
 
         'Combines the multipliers into one multiplier to make it wasier to deal with
-        If turn = 0 Then
-                multiplier = multiplier2 * Upgrade.profitx2
-            Else
-                multiplier = multiplier2
-            End If
 
-        If turn = 0 Then
-            'money made is equal to the surrent money plus the money made times the multiplier
-            moneymade = Math.Round(CInt(Form1.Label2.Text) + (((CInt(TextBox1.Text) + CInt(TextBox2.Text) + CInt(TextBox3.Text)) * actualsales) * multiplier1))
+        multiplier = multiplier2 * Upgrade.profitx2
+
+
+
+        'money made is equal to the surrent money plus the money made times the multiplier
+        moneymade = Math.Round(CInt(Form1.Label2.Text) + (((CInt(TextBox1.Text) + CInt(TextBox2.Text) + CInt(TextBox3.Text)) * actualsales) * multiplier1))
 
             'money made 1 is equal to the money the plauyer has minus the money the player had at the start of the turn ie. moneymade1 is the profit from this turn
             moneymade1 = moneymade - Form1.startmoney
@@ -122,27 +101,26 @@
                 Form1.Label12.ForeColor = Color.Black
             End If
 
-        Else
-            'money left                                         stock                                              sales           dont change
-            AI.aimoney = Math.Round(AI.aimoney + ((((AI.ailemon / 100) + (AI.aisugar / 100) + (AI.aiice)) * AI.aiactualcustomers) * (multiplier1 + multiplier2)))
+
+        'money left                                         stock                                              sales           dont change
+        ' AI.aimoney = Math.Round(AI.aimoney + ((((AI.ailemon / 100) + (AI.aisugar / 100) + (AI.aiice)) * AI.aiactualcustomers) * (multiplier1 + multiplier2)))
 
 
-            End If
-
-            If turn = 0 Then
-
-                If Math.Log10(progress) >= 5 Then
-                    ProgressBar1.Value = 5
-                Else
-                    ProgressBar1.Value = Math.Log10(progress)
-
-                End If
 
 
-                Form1.liquidcost = 0
 
+
+        If Math.Log10(progress) >= 5 Then
+                ProgressBar1.Value = 5
             Else
+                ProgressBar1.Value = Math.Log10(progress)
+
             End If
+
+
+            Form1.liquidcost = 0
+
+
 
 
 
@@ -162,14 +140,12 @@
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         MsgBox(Form1.customers.ToString)
-        AIstart += 1
-        AI.main()
         MsgBox(Form1.customers.ToString)
         Dim num As New Random
         variance = num.Next(-10, 10)
         Form1.deviation = variance * CInt(Form1.reputation)
         Form1.customers += Form1.deviation
-        turn = 0
+
 
 
         If CInt(TextBox1.Text) <= 0 Or CInt(TextBox2.Text) <= 0 Or CInt(TextBox3.Text) <= 0 Or CInt(TextBox4.Text) <= 0 Then
@@ -177,7 +153,7 @@
         Else
             If CInt(Label4.Text) >= CInt(TextBox1.Text) * CInt(TextBox4.Text) And CInt(Label5.Text) >= CInt(TextBox2.Text) * CInt(TextBox4.Text) And CInt(Label6.Text) >= CInt(TextBox3.Text) * CInt(TextBox4.Text) Then
 
-                money(turn)
+                money()
 
                 Randomize()
 
@@ -233,9 +209,9 @@
                 Me.Hide()
                 Form1.Show()
 
-                If AIcounter = 1 Then
-                    MsgBox("A rival company has set up near you...")
-                End If
+                'If AIcounter = 1 Then
+                '    MsgBox("A rival company has set up near you...")
+                'End If
 
                 ' AI.aitry()
             End If

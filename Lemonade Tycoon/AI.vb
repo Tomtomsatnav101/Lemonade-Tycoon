@@ -23,9 +23,7 @@
     Public aiprogress As Integer
 
     Sub main()
-        If Composition.AIstart >= 1 Then
-            competition()
-        End If
+
 
     End Sub
     Sub competition()
@@ -63,9 +61,6 @@
         method(3, aicounter) = aiice / 100
 
 
-        Composition.turn = 1
-
-        Composition.money(Composition.turn)
 
         method(4, aicounter) = aimoney - aiinitialmoney
 
